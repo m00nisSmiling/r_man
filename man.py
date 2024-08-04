@@ -1917,7 +1917,7 @@ while True:
   print(colored("[+] SETTINGS Request engine [activated]\n","green"))
   print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
   print(colored(f"- Current Host : {input_host}","magenta"))
-  print(colored(f"- Current Path : {path2} ]\n","magenta"))
+  print(colored(f"- Current Path : {path2} \n","magenta"))
   # SET HOST AND PATH
   input_http = input("http or https : ")
   if input_http =='' or input_http=='http':
@@ -1938,62 +1938,62 @@ while True:
    if input_path[0] == '/':
     path2 = input_path
    else:
-    path_te = input_path[1:]
+    path_te = input_path[0:]
     path2 = f"/{path_te}"
   except IndexError:
    path2 = f"/{input_path}"
    pass
   print(colored(f"\n- Current HTTP version : {http_s}","red"))
   print(colored(f"- Current Host : {input_host}","red"))
-  print(colored(f"- Current Path : {path2} ]\n","red"))
+  print(colored(f"- Current Path : {path2} \n","red"))
   
  elif input_main == 'get' or input_main == 'rg':
   print(colored("[+] GET Request engine [activated]\n","green"))
   print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
   print(colored(f"- Current Host : {input_host}","magenta"))
-  print(colored(f"- Current Path : {path2} ]\n","magenta"))
+  print(colored(f"- Current Path : {path2} \n","magenta"))
   t_get()
   
  elif input_main == 'post' or input_main =='rp':
   print(colored("[+] POST Request engine [activated]\n","green"))
   print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
   print(colored(f"- Current Host : {input_host}","magenta"))
-  print(colored(f"- Current Path : {path2} ]\n","magenta"))
+  print(colored(f"- Current Path : {path2} \n","magenta"))
   t_post()
 
  elif input_main == 'delete' or input_main =='rd':
   print(colored("[+] DELETE Request engine [activated]\n","green"))
   print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
   print(colored(f"- Current Host : {input_host}","magenta"))
-  print(colored(f"- Current Path : {path2} ]\n","magenta"))
+  print(colored(f"- Current Path : {path2} \n","magenta"))
   t_delete()
   
  elif input_main == 'put' or input_main =='rP':
   print(colored("[+] PUT Request engine [activated]\n","green"))
   print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
   print(colored(f"- Current Host : {input_host}","magenta"))
-  print(colored(f"- Current Path : {path2} ]\n","magenta"))
+  print(colored(f"- Current Path : {path2} \n","magenta"))
   t_put()
   
  elif input_main == 'options' or input_main =='ro':
   print(colored("[+] OPTIONS Request engine [activated]\n","green"))
   print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
   print(colored(f"- Current Host : {input_host}","magenta"))
-  print(colored(f"- Current Path : {path2} ]\n","magenta"))
+  print(colored(f"- Current Path : {path2} \n","magenta"))
   t_options()
 
  elif input_main == 'head' or input_main =='rh':
   print(colored("[+] HEAD Request engine [activated]\n","green"))
   print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
   print(colored(f"- Current Host : {input_host}","magenta"))
-  print(colored(f"- Current Path : {path2} ]\n","magenta"))
+  print(colored(f"- Current Path : {path2} \n","magenta"))
   t_head()  
   
  elif input_main == 'patch' or input_main =='rpat':
   print(colored("[+] PATCH Request engine [activated]\n","green"))
   print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
   print(colored(f"- Current Host : {input_host}","magenta"))
-  print(colored(f"- Current Path : {path2} ]\n","magenta"))
+  print(colored(f"- Current Path : {path2} \n","magenta"))
   t_patch()
   
  else:
