@@ -1900,24 +1900,25 @@ while True:
  input_main = input(colored("""[engine] > """,'blue'))
  if input_main == 'help' :
   print(colored("""
-   help        - info about command and caller mode 
-   exit        - exit from request engine 
-   get / g     - get request engine
-   post / p    - post request engine
-   delete / d  - delete request engine
-   put / P     - put request engine
-   patch / pat - patch request engine
-   options/o   - options request engine
-   head / h    - head request engine
+   help          - info about command and caller mode 
+   exit          - exit from request engine 
+   set-host / sh - setting of http & host 
+   set-path / sp - setting of path
+   get / g       - get request engine
+   post / p      - post request engine
+   delete / d    - delete request engine
+   put / P       - put request engine
+   patch / pat   - patch request engine
+   options/o     - options request engine
+   head / h      - head request engine   
   """,'yellow'))
  elif input_main == 'exit' or input_main == 'e':
   sys.exit()
   
- elif input_main == 'setting' or input_main == 'rset':
-  print(colored("[+] SETTINGS Request engine [activated]\n","green"))
+ elif input_main == 'set-host' or input_main == 'sh':
+  print(colored("[+] Request Host Settings [activated]\n","green"))
   print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
-  print(colored(f"- Current Host : {input_host}","magenta"))
-  print(colored(f"- Current Path : {path2} \n","magenta"))
+  print(colored(f"- Current Host : {input_host}\n","magenta"))
   # SET HOST AND PATH
   input_http = input("http or https : ")
   if input_http =='' or input_http=='http':
@@ -1931,9 +1932,16 @@ while True:
   else:
    http_in = 'http'
    http_s = 'HTTP/1.1'
-  
+  print(colored(f"Current HTTP version set to : {http_s}\n","red"))  
   input_host = input("Hostname: ")
+  print(colored(f"Current Host set to : {input_host}\n","red"))
+
+# Path Setting  
+ elif input_main == 'set-path' or input_main == 'sp':
+  print(colored("[+] Request Path Settings [activated]","green"))
+  print(colored(f"\n- Current Path : {path2}\n","magenta"))
   input_path = input("Path: ")
+
   try:
    if input_path[0] == '/':
     path2 = input_path
@@ -1942,10 +1950,8 @@ while True:
     path2 = f"/{path_te}"
   except IndexError:
    path2 = f"/{input_path}"
-   pass
-  print(colored(f"\n- Current HTTP version : {http_s}","red"))
-  print(colored(f"- Current Host : {input_host}","red"))
-  print(colored(f"- Current Path : {path2} \n","red"))
+   pass 
+  print(colored(f"Current Path set to : {path2}\n","red"))
   
  elif input_main == 'get' or input_main == 'rg':
   print(colored("[+] GET Request engine [activated]\n","green"))
@@ -2000,7 +2006,8 @@ while True:
   print(colored("""
    help          - info about command and caller mode 
    exit          - exit from request engine 
-   setting / set - setting of engine [http/host/path]
+   set-host / sh - setting of http & host 
+   set-path / sp - setting of path
    get / g       - get request engine
    post / p      - post request engine
    delete / d    - delete request engine
