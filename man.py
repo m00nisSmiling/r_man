@@ -5,51 +5,13 @@ from termcolor import colored
 import sys
 
 print(colored('''          +   REQUEST   +    ENGINE   +''','red'))
-  
-print(colored('''         000 111111111 111 111111111 000
-        00000 1111111 11111 1111111 00000
-       0000000 11111 1111111 11111 0000000
-      000000000 111 111111111 111 000000000
-                 +             +            ''','green'))
-print(colored('''          [Developed By m00nissmiling]\n''','red'))
+print(colored('''    +             +             +              +''','green'))
+print(colored('''          +[Developed By+ m00nissmiling]+   \n''','red'))
 
 
 
 # OPTIONS REQUEST ENGINE
 def t_options():
-   
-# Parameter Specify
- input_query = input("Parameter Data: ")
- try:
-  if input_query[0]=="?":
-   q_data = f"{input_query}"
-  else:
-   q_data = f"?{input_query}"
- except IndexError:
-  q_data = ""
-  pass
-   
-# Header Writing With Count
- req_header = {"User-Agent": "Python/3"}
- note_head = []
- note_value = []
- try:
-  header_count = int(input("Header count[1,2,3,4,5]: "))
- except ValueError:
-  pass
- else:
-  if header_count=='':
-   pass
-  else:
-   for i in range(0,header_count):
-    input_header = input(f"Header{i}: ")
-    if input_header == '':
-     pass
-    else:
-     input_value = input(f"Header{i}'s value: ")
-     note_head.append(f"{input_header}")
-     note_value.append(f"{input_value}")
-     req_header[input_header] = f"{input_value}"
 
 # OPTIONS Request Start
  colb = f"{http_in}://{input_host}{path2}{q_data}"
@@ -84,20 +46,25 @@ def t_options():
  
 # Request Headers Show Off
  try:
-  if header_count == 1:
-   aba = f"{note_head[0]}: {note_value[0]}"
-  elif header_count == 2:
-   aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
-  elif header_count == 3:
-   aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
-  elif header_count == 4:
-   aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
-  elif header_count == 5:
-   aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
- except UnboundLocalError:
+  acc = header_count
+ except NameError:
   pass
  else:
-  print('')
+  try:
+   if header_count == 1:
+    aba = f"{note_head[0]}: {note_value[0]}"
+   elif header_count == 2:
+    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
+   elif header_count == 3:
+    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
+   elif header_count == 4:
+    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
+   elif header_count == 5:
+    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
+  except UnboundLocalError:
+   pass
+  else:
+   print('')
 
 # Request Conditions 
  try:
@@ -109,7 +76,7 @@ def t_options():
  Accept: */*
  Connection: keep-alive
  
-  ""","blue"))
+  ""","green"))
  except UnboundLocalError:
   print(colored(f""" OPTIONS {path2}{q_data} {http_s}
  Host: {input_host}
@@ -118,7 +85,7 @@ def t_options():
  Accept: */*
  Connection: keep-alive
  
-  ""","blue"))
+  ""","green"))
   pass
  else:
   pass
@@ -269,46 +236,14 @@ def t_options():
 # RESPONSE Create
  j = ''.join(hlist)
  print(colored("=================[Response]===================","red"))
- print(colored(f"{http_s} {bss}","blue"))
- print(colored(j,"blue"))
+ print(colored(f"{http_s} {bss}","green"))
+ print(colored(j,"green"))
  print(var1.text)
 
 
 
 # HEAD REQUEST ENGINE
 def t_head():
-# Parameter Specify
- input_query = input("Parameter Data: ")
- try:
-  if input_query[0]=="?":
-   q_data = f"{input_query}"
-  else:
-   q_data = f"?{input_query}"
- except IndexError:
-  q_data = ""
-  pass
-   
-# Header Writing With Count
- req_header = {"User-Agent": "Python/3"}
- note_head = []
- note_value = []
- try:
-  header_count = int(input("Header count[1,2,3,4,5]: "))
- except ValueError:
-  pass
- else:
-  if header_count=='':
-   pass
-  else:
-   for i in range(0,header_count):
-    input_header = input(f"Header{i}: ")
-    if input_header == '':
-     pass
-    else:
-     input_value = input(f"Header{i}'s value: ")
-     note_head.append(f"{input_header}")
-     note_value.append(f"{input_value}")
-     req_header[input_header] = f"{input_value}"
 
 # HEAD Request Start
  colb = f"{http_in}://{input_host}{path2}{q_data}"
@@ -341,22 +276,27 @@ def t_head():
  else:
   bss = colored(f"{bs}","cyan")
  
-# Request Headers Show Off
+# Request Headers Show Off 
  try:
-  if header_count == 1:
-   aba = f"{note_head[0]}: {note_value[0]}"
-  elif header_count == 2:
-   aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
-  elif header_count == 3:
-   aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
-  elif header_count == 4:
-   aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
-  elif header_count == 5:
-   aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
- except UnboundLocalError:
+  bkk = header_count
+ except NameError:
   pass
  else:
-  print('')
+  try:
+   if header_count == 1:
+    aba = f"{note_head[0]}: {note_value[0]}"
+   elif header_count == 2:
+    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
+   elif header_count == 3:
+    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
+   elif header_count == 4:
+    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
+   elif header_count == 5:
+    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
+  except UnboundLocalError:
+   pass
+  else:
+   print('')
 
 # Request Conditions 
  try:
@@ -368,7 +308,7 @@ def t_head():
  Accept: */*
  Connection: keep-alive
  
-  ""","blue"))
+  ""","green"))
  except UnboundLocalError:
   print(colored(f""" HEAD {path2}{q_data} {http_s}
  Host: {input_host}
@@ -377,7 +317,7 @@ def t_head():
  Accept: */*
  Connection: keep-alive
  
-  ""","blue"))
+  ""","green"))
   pass
  else:
   pass
@@ -528,8 +468,8 @@ def t_head():
 # RESPONSE Create
  j = ''.join(hlist)
  print(colored("=================[Response]===================","red"))
- print(colored(f"{http_s} {bss}","blue"))
- print(colored(j,"blue"))
+ print(colored(f"{http_s} {bss}","green"))
+ print(colored(j,"green"))
  print(var1.text)
 
 
@@ -537,38 +477,6 @@ def t_head():
 
 # GET REQUEST ENGINE
 def t_get():
-# Parameter Specify
- input_query = input("Parameter Data: ")
- try:
-  if input_query[0]=="?":
-   q_data = f"{input_query}"
-  else:
-   q_data = f"?{input_query}"
- except IndexError:
-  q_data = ""
-  pass
-   
-# Header Writing With Count
- req_header = {"User-Agent": "Python/3"}
- note_head = []
- note_value = []
- try:
-  header_count = int(input("Header count[1,2,3,4,5]: "))
- except ValueError:
-  pass
- else:
-  if header_count=='':
-   pass
-  else:
-   for i in range(0,header_count):
-    input_header = input(f"Header{i}: ")
-    if input_header == '':
-     pass
-    else:
-     input_value = input(f"Header{i}'s value: ")
-     note_head.append(f"{input_header}")
-     note_value.append(f"{input_value}")
-     req_header[input_header] = f"{input_value}"
 
 # Get Request Start
  colb = f"{http_in}://{input_host}{path2}{q_data}"
@@ -603,20 +511,25 @@ def t_get():
  
 # Request Headers Show Off
  try:
-  if header_count == 1:
-   aba = f"{note_head[0]}: {note_value[0]}"
-  elif header_count == 2:
-   aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
-  elif header_count == 3:
-   aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
-  elif header_count == 4:
-   aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
-  elif header_count == 5:
-   aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
- except UnboundLocalError:
+  bkk = header_count
+ except NameError:
   pass
  else:
-  print('')
+  try:
+   if header_count == 1:
+    aba = f"{note_head[0]}: {note_value[0]}"
+   elif header_count == 2:
+    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
+   elif header_count == 3:
+    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
+   elif header_count == 4:
+    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
+   elif header_count == 5:
+    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
+  except UnboundLocalError:
+   pass
+  else:
+   print('')
 
 # Request Conditions 
  try:
@@ -628,7 +541,7 @@ def t_get():
  Accept: */*
  Connection: keep-alive
  
-  ""","blue"))
+  ""","green"))
  except UnboundLocalError:
   print(colored(f""" GET {path2}{q_data} {http_s}
  Host: {input_host}
@@ -637,7 +550,7 @@ def t_get():
  Accept: */*
  Connection: keep-alive
  
-  ""","blue"))
+  ""","green"))
   pass
  else:
   pass
@@ -788,24 +701,14 @@ def t_get():
 # RESPONSE Create
  j = ''.join(hlist)
  print(colored("=================[Response]===================","red"))
- print(colored(f"{http_s} {bss}","blue"))
- print(colored(j,"blue"))
+ print(colored(f"{http_s} {bss}","green"))
+ print(colored(j,"green"))
  print(var1.text)
 
 
 
 # DELETE REQUEST ENGINE
 def t_delete():
-# Parameter Specify
- input_query = input("Parameter Data: ")
- try:
-  if input_query[0]=="?":
-   q_data = f"{input_query}"
-  else:
-   q_data = f"?{input_query}"
- except IndexError:
-  q_data = ""
-  pass
  
 # Header Writing With Count  
  req_header = {"User-Agent": "Python/3"}
@@ -862,20 +765,25 @@ def t_delete():
  
 # Request Headers Show Off
  try:
-  if header_count == 1:
-   aba = f"{note_head[0]}: {note_value[0]}"
-  elif header_count == 2:
-   aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
-  elif header_count == 3:
-   aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
-  elif header_count == 4:
-   aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
-  elif header_count == 5:
-   aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
- except UnboundLocalError:
+  bkk = header_count
+ except NameError:
   pass
  else:
-  print('')
+  try:
+   if header_count == 1:
+    aba = f"{note_head[0]}: {note_value[0]}"
+   elif header_count == 2:
+    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
+   elif header_count == 3:
+    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
+   elif header_count == 4:
+    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
+   elif header_count == 5:
+    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
+  except UnboundLocalError:
+   pass
+  else:
+   print('')
 
 # Request Conditions 
  try:
@@ -887,7 +795,7 @@ def t_delete():
  Accept: */*
  Connection: keep-alive
  
-  ""","blue"))
+  ""","green"))
  except UnboundLocalError:
   print(colored(f""" DELETE {path2}{q_data} {http_s}
  Host: {input_host}
@@ -896,7 +804,7 @@ def t_delete():
  Accept: */*
  Connection: keep-alive
  
-  ""","blue"))
+  ""","green"))
   pass
  else:
   pass
@@ -1047,41 +955,15 @@ def t_delete():
 # RESPONSE Create
  j = ''.join(hlist)
  print(colored("=================[Response]===================","red"))
- print(colored(f"{http_s} {bss}","blue"))
- print(colored(j,"blue"))
+ print(colored(f"{http_s} {bss}","green"))
+ print(colored(j,"green"))
  print(var1.text)
 
 
 # POST REQUEST ENGINE
 def t_post():
-# Header Writing With Count  
- req_header = {"User-Agent": "Python/3"}
- note_head = []
- note_value = []
- try:
-  header_count = int(input("Header count[1,2,3,4,5]: "))
- except ValueError:
-  pass
- else:
-  if header_count=='':
-   pass
-  else:
-   for i in range(0,header_count):
-    input_header = input(f"Header{i}: ")
-    if input_header == '':
-     pass
-    else:
-     input_value = input(f"Header{i}'s value: ")
-     note_head.append(f"{input_header}")
-     note_value.append(f"{input_value}")
-     req_header[input_header] = f"{input_value}"
-
-# POST Request Start
  colb = f"{http_in}://{input_host}{path2}"
- 
-# Parameter Specify
-
- input_queryType = input("Post Data Type[json/www]: ")
+ input_queryType = input("Body Data Type[json/www]: ")
  q_data = {}
  note_jquery = []
  note_jvalue = []
@@ -1099,13 +981,27 @@ def t_post():
    note_jvalue.append(input_jvalue)
    q_data[input_jquery] = input_jvalue
   var1 = requests.post(f"{colb}", headers=req_header, json=q_data, allow_redirects=False)
-  bo = var1.headers
  else:
-  input_query = input("Parameter: ")
-  q_data = input_query
+  value_query = input("parameter's value: ")
+  if value_query == '':
+   q_data = f"{input_query1}={value_query1}"
+  else:
+   q_data = f"{input_query1}={value_query}"
+   
   var1 = requests.post(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
-  bo = var1.headers
-  
+   
+# POST Request Start
+ bo = var1.headers
+ br = var1.request.headers
+
+# Request Content Fetch 
+ try: 
+  fc = br['Content-Length']
+ except KeyError:
+  pass
+ else:
+  cf = fc
+ 
 # Status Code Fetches
  bs = var1.status_code
  if bs == 200:
@@ -1133,20 +1029,25 @@ def t_post():
  
 # Request Headers Show Off
  try:
-  if header_count == 1:
-   aba = f"{note_head[0]}: {note_value[0]}"
-  elif header_count == 2:
-   aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
-  elif header_count == 3:
-   aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
-  elif header_count == 4:
-   aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
-  elif header_count == 5:
-   aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
- except UnboundLocalError:
+  bkk = header_count
+ except NameError:
   pass
  else:
-  print('')
+  try:
+   if header_count == 1:
+    aba = f"{note_head[0]}: {note_value[0]}"
+   elif header_count == 2:
+    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
+   elif header_count == 3:
+    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
+   elif header_count == 4:
+    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
+   elif header_count == 5:
+    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
+  except UnboundLocalError:
+   pass
+  else:
+   print('')
   
 # Request Conditions  
  try:
@@ -1157,8 +1058,9 @@ def t_post():
  Accept-Encoding: gzip, deflate, br
  Accept: */*
  Connection: keep-alive
+ Content-Length: {cf}
  
- {q_data}""","blue"))
+ {q_data}""","green"))
  except UnboundLocalError:
   print(colored(f""" POST {path2} {http_s}
  Host: {input_host}
@@ -1166,8 +1068,9 @@ def t_post():
  Accept-Encoding: gzip, deflate, br
  Accept: */*
  Connection: keep-alive
- 
- {q_data}""","blue"))
+ Content-Length: {cf}
+  
+ {q_data}""","green"))
   pass
  else:
   pass
@@ -1318,41 +1221,16 @@ def t_post():
 # RESPONSE Create
  j = ''.join(hlist)
  print(colored("=================[Response]===================","red"))
- print(colored(f"{http_s} {bss}","blue"))
- print(colored(j,"blue"))
+ print(colored(f"{http_s} {bss}","green"))
+ print(colored(j,"green"))
  print(var1.text)
 
 
 
 def t_patch():
-# Header Writing With Count  
- req_header = {"User-Agent": "Python/3"}
- note_head = []
- note_value = []
- try:
-  header_count = int(input("Header count[1,2,3,4,5]: "))
- except ValueError:
-  pass
- else:
-  if header_count=='':
-   pass
-  else:
-   for i in range(0,header_count):
-    input_header = input(f"Header{i}: ")
-    if input_header == '':
-     pass
-    else:
-     input_value = input(f"Header{i}'s value: ")
-     note_head.append(f"{input_header}")
-     note_value.append(f"{input_value}")
-     req_header[input_header] = f"{input_value}"
-
 # PATCH Request Start
  colb = f"{http_in}://{input_host}{path2}"
- 
-# Parameter Specify
-
- input_queryType = input("Post Data Type[json/www]: ")
+ input_queryType = input("Body Data Type[json/www]: ")
  q_data = {}
  note_jquery = []
  note_jvalue = []
@@ -1370,13 +1248,26 @@ def t_patch():
    note_jvalue.append(input_jvalue)
    q_data[input_jquery] = input_jvalue
   var1 = requests.patch(f"{colb}", headers=req_header, json=q_data, allow_redirects=False)
-  bo = var1.headers
  else:
-  input_query = input("Parameter: ")
-  q_data = input_query
+  value_query = input("parameter's value: ")
+  if value_query == '':
+   q_data = f"{input_query1}={value_query1}"
+  else:
+   q_data = f"{input_query1}={value_query}"
+   
   var1 = requests.patch(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
-  bo = var1.headers
   
+ bo = var1.headers
+ br = var1.request.headers
+  
+# Request Content Fetch 
+ try: 
+  fc = br['Content-Length']
+ except KeyError:
+  pass
+ else:
+  cf = fc  
+
 # Status Code Fetches
  bs = var1.status_code
  if bs == 200:
@@ -1404,20 +1295,25 @@ def t_patch():
  
 # Request Headers Show Off
  try:
-  if header_count == 1:
-   aba = f"{note_head[0]}: {note_value[0]}"
-  elif header_count == 2:
-   aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
-  elif header_count == 3:
-   aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
-  elif header_count == 4:
-   aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
-  elif header_count == 5:
-   aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
- except UnboundLocalError:
+  bkk = header_count
+ except NameError:
   pass
  else:
-  print('')
+  try:
+   if header_count == 1:
+    aba = f"{note_head[0]}: {note_value[0]}"
+   elif header_count == 2:
+    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
+   elif header_count == 3:
+    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
+   elif header_count == 4:
+    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
+   elif header_count == 5:
+    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
+  except UnboundLocalError:
+   pass
+  else:
+   print('')
   
 # Request Conditions  
  try:
@@ -1428,8 +1324,9 @@ def t_patch():
  Accept-Encoding: gzip, deflate, br
  Accept: */*
  Connection: keep-alive
+ Content-Length: {cf}
  
- {q_data}""","blue"))
+ {q_data}""","green"))
  except UnboundLocalError:
   print(colored(f""" PATCH {path2} {http_s}
  Host: {input_host}
@@ -1437,8 +1334,9 @@ def t_patch():
  Accept-Encoding: gzip, deflate, br
  Accept: */*
  Connection: keep-alive
- 
- {q_data}""","blue"))
+ Content-Length: {cf}
+  
+ {q_data}""","green"))
   pass
  else:
   pass
@@ -1589,42 +1487,17 @@ def t_patch():
 # RESPONSE Create
  j = ''.join(hlist)
  print(colored("=================[Response]===================","red"))
- print(colored(f"{http_s} {bss}","blue"))
- print(colored(j,"blue"))
+ print(colored(f"{http_s} {bss}","green"))
+ print(colored(j,"green"))
  print(var1.text)
 
 
 
 # PUT REQUEST ENGINE
 def t_put():
-# Header Writing With Count  
- req_header = {"User-Agent": "Python/3"}
- note_head = []
- note_value = []
- try:
-  header_count = int(input("Header count[1,2,3,4,5]: "))
- except ValueError:
-  pass
- else:
-  if header_count=='':
-   pass
-  else:
-   for i in range(0,header_count):
-    input_header = input(f"Header{i}: ")
-    if input_header == '':
-     pass
-    else:
-     input_value = input(f"Header{i}'s value: ")
-     note_head.append(f"{input_header}")
-     note_value.append(f"{input_value}")
-     req_header[input_header] = f"{input_value}"
-
 # PUT Request Start
  colb = f"{http_in}://{input_host}{path2}"
- 
-# Parameter Specify
-
- input_queryType = input("Post Data Type[json/www]: ")
+ input_queryType = input("Body Data Type[json/www]: ")
  q_data = {}
  note_jquery = []
  note_jvalue = []
@@ -1642,13 +1515,25 @@ def t_put():
    note_jvalue.append(input_jvalue)
    q_data[input_jquery] = input_jvalue
   var1 = requests.put(f"{colb}", headers=req_header, json=q_data, allow_redirects=False)
-  bo = var1.headers
  else:
-  input_query = input("Parameter: ")
-  q_data = input_query
+  value_query = input("parameter's value: ")
+  if value_query == '':
+   q_data = f"{input_query1}={value_query1}"
+  else:
+   q_data = f"{input_query1}={value_query}"
+   
   var1 = requests.put(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
-  bo = var1.headers
   
+ bo = var1.headers
+ br = var1.request.headers
+# Request Content Fetch 
+ try: 
+  fc = br['Content-Length']
+ except KeyError:
+  pass
+ else:
+  cf = fc  
+
 # Status Code Fetches
  bs = var1.status_code
  if bs == 200:
@@ -1676,20 +1561,25 @@ def t_put():
  
 # Request Headers Show Off
  try:
-  if header_count == 1:
-   aba = f"{note_head[0]}: {note_value[0]}"
-  elif header_count == 2:
-   aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
-  elif header_count == 3:
-   aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
-  elif header_count == 4:
-   aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
-  elif header_count == 5:
-   aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
- except UnboundLocalError:
+  bkk = header_count
+ except NameError:
   pass
  else:
-  print('')
+  try:
+   if header_count == 1:
+    aba = f"{note_head[0]}: {note_value[0]}"
+   elif header_count == 2:
+    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
+   elif header_count == 3:
+    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
+   elif header_count == 4:
+    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
+   elif header_count == 5:
+    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
+  except UnboundLocalError:
+   pass
+  else:
+   print('')
   
 # Request Conditions  
  try:
@@ -1700,8 +1590,9 @@ def t_put():
  Accept-Encoding: gzip, deflate, br
  Accept: */*
  Connection: keep-alive
+ Content-Length: {cf}
  
- {q_data}""","blue"))
+ {q_data}""","green"))
  except UnboundLocalError:
   print(colored(f""" PUT {path2} {http_s}
  Host: {input_host}
@@ -1709,8 +1600,9 @@ def t_put():
  Accept-Encoding: gzip, deflate, br
  Accept: */*
  Connection: keep-alive
+ Content-Length: {cf}
  
- {q_data}""","blue"))
+ {q_data}""","green"))
   pass
  else:
   pass
@@ -1861,18 +1753,18 @@ def t_put():
 # RESPONSE Create
  j = ''.join(hlist)
  print(colored("=================[Response]===================","red"))
- print(colored(f"{http_s} {bss}","blue"))
- print(colored(j,"blue"))
+ print(colored(f"{http_s} {bss}","green"))
+ print(colored(j,"green"))
  print(var1.text)
  
  
 # SET HOST AND PATH
-input_http = input("http or https : ")
-if input_http =='' or input_http=='http':
+input_http1 = input("http or https : ")
+if input_http1 =='' or input_http1=='http':
  http_in = 'http'
  http_s = 'HTTP/1.1'
    
-elif input_http =='HTTPS' or input_http=='https':
+elif input_http1 =='HTTPS' or input_http1=='https':
  http_in = 'https'
  http_s = 'HTTP/2'
 
@@ -1880,9 +1772,21 @@ else:
  http_in = 'http'
  http_s = 'HTTP/1.1'
 
+
+# Main Program Start
+
 print(colored(f"Current Protocol Set To : {http_s}","magenta")) 
-input_host = input("Hostname: ")
-print(colored(f"Current Hostname Set To : {input_host}","magenta"))
+input_host1 = input("Hostname: ")
+if input_host1 == '':
+ print("ERROR !! please specify the host name ")
+ input_host1 = input("Hostname: ")
+ input_host = input_host1
+ print(colored(f"Current Hostname Set To : {input_host}","magenta"))
+else:
+ input_host = input_host1
+ print(colored(f"Current Hostname Set To : {input_host}","magenta"))
+ 
+# main path
 input_path = input("Path: ")
 try:
  if input_path[0] == '/':
@@ -1893,24 +1797,54 @@ try:
 except IndexError:
  path2 = f"/{input_path}"
  pass
-
 print(colored(f"Current Path Set To : {path2}","magenta"))
 
+# Parameter Specify
+input_query = input("parameter: ")
+value_query = input("parmeter's value: ")
+if input_query == '' and value_query == '':
+ q_data = ''
+ pass
+else:
+ try:
+  if input_query[0]=="?":
+   q_data = f"{input_query}={value_query}"
+   print(colored(f"Current URL parameter & value set to : {q_data}\n","magenta"))
+  else:
+   q_data = f"?{input_query1}={value_query1}"
+   print(colored(f"Current URL parameter & value set to : {q_data}\n","magenta"))
+ except IndexError:
+  q_data = ""
+  pass
+   
+
+req_header = {"User-Agent": "Python/3"}
 while True:
- input_main = input(colored("""[engine] > """,'blue'))
+ print(colored(f"""
+ -------[Current--Request]---------- 
+ [METHOD] {path2}{q_data} {http_s}
+ Host: {input_host}
+ Accept-Encoding: gzip, deflate, br
+ Accept: */*
+ Connection: keep-alive
+ 
+ -----------------------------------""","magenta"))
+ input_main = input(colored("""[engine] > """,'red'))
  if input_main == 'help' :
   print(colored("""
-   help          - info about command and caller mode 
-   exit          - exit from request engine 
-   set-host / sh - setting of http & host 
-   set-path / sp - setting of path
-   get / g       - get request engine
-   post / p      - post request engine
-   delete / d    - delete request engine
-   put / P       - put request engine
-   patch / pat   - patch request engine
-   options/o     - options request engine
-   head / h      - head request engine   
+   help           - info about command and caller mode 
+   exit           - exit from request engine 
+   set-host / sh  - setting of http & host 
+   set-path / sp  - setting of path
+   set-para/ spa  - setting of get parameter
+   set-header/ sh - setting of headers
+   get / g        - get request engine
+   post / p       - post request engine
+   delete / d     - delete request engine
+   put / P        - put request engine
+   patch / pat    - patch request engine
+   options/o      - options request engine
+   head / h       - head request engine     
   """,'yellow'))
  elif input_main == 'exit' or input_main == 'e':
   sys.exit()
@@ -1919,29 +1853,36 @@ while True:
   print(colored("[+] Request Host Settings [activated]\n","green"))
   print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
   print(colored(f"- Current Host : {input_host}\n","magenta"))
-  # SET HOST AND PATH
+  
+# SET HOST AND PATH
   input_http = input("http or https : ")
-  if input_http =='' or input_http=='http':
-   http_in = 'http'
-   http_s = 'HTTP/1.1'
-   
-  elif input_http =='HTTPS' or input_http=='https':
-   http_in = 'https'
-   http_s = 'HTTP/2'
-
+  if input_http == '':
+   input_http == input_http1
   else:
-   http_in = 'http'
-   http_s = 'HTTP/1.1'
-  print(colored(f"Current HTTP version set to : {http_s}\n","red"))  
+   if input_http=='http':
+    http_in = 'http'
+    http_s = 'HTTP/1.1'
+   
+   elif input_http =='HTTPS' or input_http=='https':
+    http_in = 'https'
+    http_s = 'HTTP/2'
+
+   else:
+    http_in = 'http'
+    http_s = 'HTTP/1.1'
+   print(colored(f"Current HTTP version set to : {http_s}\n","red"))  
   input_host = input("Hostname: ")
-  print(colored(f"Current Host set to : {input_host}\n","red"))
+  if input_host == '':
+   input_host = input_host1
+   print(colored(f"Current Host set to : {input_host}\n","red"))
+  else:
+   print(colored(f"Current Host set to : {input_host}\n","red"))
 
 # Path Setting  
  elif input_main == 'set-path' or input_main == 'sp':
   print(colored("[+] Request Path Settings [activated]","green"))
   print(colored(f"\n- Current Path : {path2}\n","magenta"))
   input_path = input("Path: ")
-
   try:
    if input_path[0] == '/':
     path2 = input_path
@@ -1952,67 +1893,191 @@ while True:
    path2 = f"/{input_path}"
    pass 
   print(colored(f"Current Path set to : {path2}\n","red"))
+
   
+# Parameter Setting
+ elif input_main == 'set-para' or input_main == 'spa':
+  print(colored("[+] Request Parameter Settings [activated]","green"))
+  print(colored(f"\n- Current Parameter : {q_data}\n","magenta"))
+  input_query1 = input("parameter: ")
+  if input_query1 == '':
+   input_query1 = input_query
+  else:
+   pass
+  value_query1 = input("parameter's value: ")
+  if value_query1 == '':
+   value_query1 = value_query
+  else:
+   pass
+  try:
+   if input_query1[0]=="?":
+    q_data = f"{input_query1}={value_query1}"
+   else:
+    q_data = f"?{input_query1}={value_query1}"
+  except IndexError:
+   q_data = ""
+   pass
+  print(colored(f"Current Parameter & value set to : {q_data}\n","red"))
+
+ elif input_main == 'set-header' or input_main == 'sh':
+  print(colored("[+] Request Header Settings [activated]\n","green"))
+  
+  
+# Header Writing With Count
+  note_head = []
+  note_value = []
+  try:
+   header_count = int(input("Header count[1,2,3,4,5]: "))
+  except ValueError:
+   pass
+  else:
+   if header_count=='':
+    pass
+   else:
+    for i in range(0,header_count):
+     input_header = input(f"Header{i}: ")
+     if input_header == '':
+      pass
+     else:
+      input_value = input(f"Header{i}'s value: ")
+      print(colored(f"Current Header{i} & value{i} set to > {input_header}: {input_value}\n","red"))
+      note_head.append(f"{input_header}")
+      note_value.append(f"{input_value}")
+      req_header[input_header] = f"{input_value}"
+  
+# Get request option 
  elif input_main == 'get' or input_main == 'rg':
   print(colored("[+] GET Request engine [activated]\n","green"))
-  print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
-  print(colored(f"- Current Host : {input_host}","magenta"))
-  print(colored(f"- Current Path : {path2} \n","magenta"))
   t_get()
   
+# Post request option
  elif input_main == 'post' or input_main =='rp':
-  print(colored("[+] POST Request engine [activated]\n","green"))
-  print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
-  print(colored(f"- Current Host : {input_host}","magenta"))
-  print(colored(f"- Current Path : {path2} \n","magenta"))
-  t_post()
+  try: 
+   a = input_query1
+   b = value_query1
+  except NameError:
+   print(colored("[!]You need to specify Post Request Parameter using 'set-para' or 'spa' in [engine] section \n","magenta"))
+   pass
+  else:
+   print(colored("[+] POST Request engine [activated]\n","green"))
+   print(colored(f"""
+ -------[Current--Request]---------- 
+ POST {path2} {http_s}
+ Host: {input_host}
+ Accept-Encoding: gzip, deflate, br
+ Accept: */*
+ Connection: keep-alive
+ Content-Type: [content-type]
+ Content-Length: 0
+ 
+ {input_query1}={value_query1}
+ -----------------------------------""","magenta"))
+   t_post()
 
+# Delete request option
  elif input_main == 'delete' or input_main =='rd':
   print(colored("[+] DELETE Request engine [activated]\n","green"))
-  print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
-  print(colored(f"- Current Host : {input_host}","magenta"))
-  print(colored(f"- Current Path : {path2} \n","magenta"))
+  print(colored(f"""
+ -------[Current--Request]---------- 
+ DELETE {path2}{q_data} {http_s}
+ Host: {input_host}
+ Accept-Encoding: gzip, deflate, br
+ Accept: */*
+ Connection: keep-alive
+ 
+ -----------------------------------""","magenta"))
   t_delete()
   
+# Put request option
  elif input_main == 'put' or input_main =='rP':
-  print(colored("[+] PUT Request engine [activated]\n","green"))
-  print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
-  print(colored(f"- Current Host : {input_host}","magenta"))
-  print(colored(f"- Current Path : {path2} \n","magenta"))
-  t_put()
+  try: 
+   a = input_query1
+   b = value_query1
+  except NameError:
+   print(colored("[!]You need to specify Put Request Parameter using 'set-para' or 'spa' in [engine] section \n","magenta"))
+   pass
+  else:
+   print(colored("[+] PUT Request engine [activated]\n","green"))
+   print(colored(f"""
+ -------[Current--Request]---------- 
+ PUT {path2} {http_s}
+ Host: {input_host}
+ Accept-Encoding: gzip, deflate, br
+ Accept: */*
+ Connection: keep-alive
+ Content-Type: [content-type]
+ Content-Length: 0
+ 
+ {input_query1}={value_query1}
+ -----------------------------------""","magenta"))
+   t_put()
   
+# Option request option
  elif input_main == 'options' or input_main =='ro':
   print(colored("[+] OPTIONS Request engine [activated]\n","green"))
-  print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
-  print(colored(f"- Current Host : {input_host}","magenta"))
-  print(colored(f"- Current Path : {path2} \n","magenta"))
+  print(colored(f"""
+ -------[Current--Request]---------- 
+ OPTIONS {path2}{q_data} {http_s}
+ Host: {input_host}
+ Accept-Encoding: gzip, deflate, br
+ Accept: */*
+ Connection: keep-alive
+ 
+ -----------------------------------""","magenta"))
   t_options()
 
+# Head request option
  elif input_main == 'head' or input_main =='rh':
   print(colored("[+] HEAD Request engine [activated]\n","green"))
-  print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
-  print(colored(f"- Current Host : {input_host}","magenta"))
-  print(colored(f"- Current Path : {path2} \n","magenta"))
+  print(colored(f"""
+ -------[Current--Request]---------- 
+ HEAD {path2}{q_data} {http_s}
+ Host: {input_host}
+ Accept-Encoding: gzip, deflate, br
+ Accept: */*
+ Connection: keep-alive
+ 
+ -----------------------------------""","magenta"))
   t_head()  
   
+# Patch request option
  elif input_main == 'patch' or input_main =='rpat':
-  print(colored("[+] PATCH Request engine [activated]\n","green"))
-  print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
-  print(colored(f"- Current Host : {input_host}","magenta"))
-  print(colored(f"- Current Path : {path2} \n","magenta"))
-  t_patch()
+  try: 
+   a = input_query1
+   b = value_query1
+  except NameError:
+   print(colored("[!]You need to specify Patch Request Parameter using 'set-para' or 'spa' in [engine] section \n","magenta"))
+   pass
+  else:
+   print(colored("[+] PATCH Request engine [activated]\n","green"))
+   print(colored(f"""
+ -------[Current--Request]---------- 
+ PATCH {path2} {http_s}
+ Host: {input_host}
+ Accept-Encoding: gzip, deflate, br
+ Accept: */*
+ Connection: keep-alive
+ Content-Type: [content-type]
+ Content-Length: 0
+ 
+ {input_query1}={value_query1}
+ -----------------------------------""","magenta"))
+   t_patch()
   
+# Else option to help
  else:
   print(colored("""
-   help          - info about command and caller mode 
-   exit          - exit from request engine 
-   set-host / sh - setting of http & host 
-   set-path / sp - setting of path
-   get / g       - get request engine
-   post / p      - post request engine
-   delete / d    - delete request engine
-   put / P       - put request engine
-   patch / pat   - patch request engine
-   options/o     - options request engine
-   head / h      - head request engine   
+   help           - info about command and caller mode 
+   exit           - exit from request engine 
+   set-host / sh  - setting of http & host 
+   set-path / sp  - setting of path
+   set-para/ spa  - setting of get parameter
+   set-header/ sh - setting of headers
+   get / g        - get request engine
+   post / p       - post request engine
+   delete / d     - delete request engine
+   put / P        - put request engine
+   patch / pat    - patch request engine
+   options/o      - options request engine
+   head / h       - head request engine   
   """,'yellow'))
