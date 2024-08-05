@@ -1822,21 +1822,12 @@ req_header = {"User-Agent": "Python/3"}
 
 
 while True:
- print(colored(f"""
- -------[Current--Request]---------- 
- [METHOD] {path2}{q_data} {http_s}
- Host: {input_host}
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
- 
- {q_data}
- -----------------------------------""","magenta"))
  input_main = input(colored("""[engine] > """,'red'))
  if input_main == 'help' :
   print(colored("""
    help           - info about command and caller mode 
-   exit           - exit from request engine 
+   exit           - exit from request engine
+   show           - show current request  
    set-host / sh  - setting of http & host 
    set-path / sp  - setting of path
    set-para/ spa  - setting of get parameter
@@ -1852,6 +1843,18 @@ while True:
  elif input_main == 'exit' or input_main == 'e':
   sys.exit()
   
+ elif input_main == 'show':  
+  print(colored(f"""
+ -------[Current--Request]---------- 
+ [METHOD] {path2}{q_data} {http_s}
+ Host: {input_host}
+ Accept-Encoding: gzip, deflate, br
+ Accept: */*
+ Connection: keep-alive
+ 
+ {q_data}
+ -----------------------------------""","magenta"))
+ 
  elif input_main == 'set-host' or input_main == 'sh':
   print(colored("[+] Request Host Settings [activated]\n","green"))
   print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
@@ -2071,7 +2074,8 @@ while True:
  else:
   print(colored("""
    help           - info about command and caller mode 
-   exit           - exit from request engine 
+   exit           - exit from request engine
+   show           - show current request  
    set-host / sh  - setting of http & host 
    set-path / sp  - setting of path
    set-para/ spa  - setting of get parameter
@@ -2082,5 +2086,5 @@ while True:
    put / P        - put request engine
    patch / pat    - patch request engine
    options/o      - options request engine
-   head / h       - head request engine   
+   head / h       - head request engine  
   """,'yellow'))
