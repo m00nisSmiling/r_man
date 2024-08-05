@@ -1811,7 +1811,7 @@ else:
    q_data = f"{input_query}={value_query}"
    print(colored(f"Current URL parameter & value set to : {q_data}\n","magenta"))
   else:
-   q_data = f"?{input_query1}={value_query1}"
+   q_data = f"?{input_query}={value_query}"
    print(colored(f"Current URL parameter & value set to : {q_data}\n","magenta"))
  except IndexError:
   q_data = ""
@@ -1819,6 +1819,8 @@ else:
    
 
 req_header = {"User-Agent": "Python/3"}
+
+
 while True:
  print(colored(f"""
  -------[Current--Request]---------- 
@@ -1828,6 +1830,7 @@ while True:
  Accept: */*
  Connection: keep-alive
  
+ {q_data}
  -----------------------------------""","magenta"))
  input_main = input(colored("""[engine] > """,'red'))
  if input_main == 'help' :
