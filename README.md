@@ -14,15 +14,18 @@ Manual Request Engine For Termux / Linux / Windows
 #### - You can manually specify your [ headers:values, parameters:values, request data in json ]
 
 # Engine Commands
-#####   help          - info about command and caller mode 
-#####   exit          - exit from request engine 
-#####   set-host / sh - setting of http & host 
-#####   set-path / sp - setting of path
-#####   get / g       - get request engine
-#####   post / p      - post request engine
-#####   delete / d    - delete request engine
-#####   put / P       - put request engine
-#####   patch / pat   - patch request engine
-#####   options/o     - options request engine
-#####   head / h      - head request engine 
-
+ help            - help mode
+ exit            - exit from request engine
+ show            - show current request  
+ set-host / sh   - setting of http & host 
+ set-header / sh - setting of headers
+ set-path / sp   - setting of path
+ set-para / spa  - setting of get parameter
+ set-json / sj   - setting of json body [POST/PUT/PATCH]
+ get / g        - get request engine
+ post / p       - post request engine
+ delete / d     - delete request engine
+ put / P        - put request engine
+ patch / pat    - patch request engine
+ options / o    - options request engine
+ head / h       - head request engine
