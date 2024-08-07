@@ -4,7 +4,7 @@ import json
 from termcolor import colored
 import sys
 
-print(colored('''          +   REQUEST   +    ENGINE   +''','red'))
+print(colored('''\n          +   REQUEST   +    ENGINE     +''','red'))
 print(colored('''    +             +             +              +''','green'))
 print(colored('''          +[Developed By+ m00nissmiling]+   \n''','red'))
 
@@ -14,11 +14,27 @@ print(colored('''          +[Developed By+ m00nissmiling]+   \n''','red'))
 def t_options():
 
 # OPTIONS Request Start
- colb = f"{http_in}://{input_host}{path2}{q_data}"
+ colb = f"{http_in}://{input_host}{path2}"
 
- var1 = requests.options(f"{colb}", headers=req_header, allow_redirects=False)
+ try:
+  abf = input_query1
+  abe = value_query1
+ except NameError: 
+  q_data = ''
+  var1 = requests.options(f"{colb}", headers=req_header, allow_redirects=False)
+  pass
+ else:
+  value_query = input("parameter's value: ")
+  if value_query == '':
+   q_data = f"?{input_query1}={value_query1}"
+  else:
+   q_data = f"?{input_query1}={value_query}"
+  var1 = requests.options(f"{colb}{q_data}", headers=req_header, allow_redirects=False)
+  
  bo = var1.headers
- 
+ print(colored("===================[URL]=====================","red"))
+ print(colored(f"{colb}{q_data}","blue"))
+  
 # Status Code Fetches
  bs = var1.status_code
  if bs == 200:
@@ -44,46 +60,24 @@ def t_options():
  else:
   bss = colored(f"{bs}","cyan")
  
-# Request Headers Show Off
- try:
-  acc = header_count
- except NameError:
-  pass
- else:
-  try:
-   if header_count == 1:
-    aba = f"{note_head[0]}: {note_value[0]}"
-   elif header_count == 2:
-    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
-   elif header_count == 3:
-    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
-   elif header_count == 4:
-    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
-   elif header_count == 5:
-    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
-  except UnboundLocalError:
-   pass
-  else:
-   print('')
-
 # Request Conditions 
  try:
   print(colored("=================[Request]===================","red"))
-  print(colored(f""" OPTIONS {path2}{q_data} {http_s}
- Host: {input_host}
- {aba}
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
+  print(colored(f"""OPTIONS {path2}{q_data} {http_s}
+Host: {input_host}
+{aba}
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Connection: keep-alive
  
   ""","green"))
  except UnboundLocalError:
-  print(colored(f""" OPTIONS {path2}{q_data} {http_s}
- Host: {input_host}
- User-Agent: Python/3
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
+  print(colored(f"""OPTIONS {path2}{q_data} {http_s}
+Host: {input_host}
+User-Agent: Python/3
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Connection: keep-alive
  
   ""","green"))
   pass
@@ -246,11 +240,26 @@ def t_options():
 def t_head():
 
 # HEAD Request Start
- colb = f"{http_in}://{input_host}{path2}{q_data}"
+ colb = f"{http_in}://{input_host}{path2}"
 
- var1 = requests.head(f"{colb}", headers=req_header, allow_redirects=False)
+ try:
+  abf = input_query1
+  abe = value_query1
+ except NameError: 
+  q_data = ''
+  var1 = requests.head(f"{colb}", headers=req_header, allow_redirects=False)
+  pass
+ else:
+  value_query = input("parameter's value: ")
+  if value_query == '':
+   q_data = f"?{input_query1}={value_query1}"
+  else:
+   q_data = f"?{input_query1}={value_query}"
+  var1 = requests.head(f"{colb}{q_data}", headers=req_header, allow_redirects=False)
+  
  bo = var1.headers
- 
+ print(colored("===================[URL]=====================","red"))
+ print(colored(f"{colb}{q_data}","blue"))
 # Status Code Fetches
  bs = var1.status_code
  if bs == 200:
@@ -275,47 +284,25 @@ def t_head():
   bss = colored("503 Service Unavailable","red")
  else:
   bss = colored(f"{bs}","cyan")
- 
-# Request Headers Show Off 
- try:
-  bkk = header_count
- except NameError:
-  pass
- else:
-  try:
-   if header_count == 1:
-    aba = f"{note_head[0]}: {note_value[0]}"
-   elif header_count == 2:
-    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
-   elif header_count == 3:
-    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
-   elif header_count == 4:
-    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
-   elif header_count == 5:
-    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
-  except UnboundLocalError:
-   pass
-  else:
-   print('')
 
 # Request Conditions 
  try:
   print(colored("=================[Request]===================","red"))
-  print(colored(f""" HEAD {path2}{q_data} {http_s}
- Host: {input_host}
- {aba}
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
+  print(colored(f"""HEAD {path2}{q_data} {http_s}
+Host: {input_host}
+{aba}
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Connection: keep-alive
  
-  ""","green"))
+ ""","green"))
  except UnboundLocalError:
-  print(colored(f""" HEAD {path2}{q_data} {http_s}
- Host: {input_host}
- User-Agent: Python/3
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
+  print(colored(f"""HEAD {path2}{q_data} {http_s}
+Host: {input_host}
+User-Agent: Python/3
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Connection: keep-alive
  
   ""","green"))
   pass
@@ -479,13 +466,28 @@ def t_head():
 def t_get():
 
 # Get Request Start
- colb = f"{http_in}://{input_host}{path2}{q_data}"
+ colb = f"{http_in}://{input_host}{path2}" 
+ try:
+  abf = input_query1
+  abe = value_query1
+ except NameError: 
+  q_data = ''
+  var1 = requests.get(f"{colb}", headers=req_header, allow_redirects=False)
+  pass
+ else:
+  value_query = input("parameter's value: ")
+  if value_query == '':
+   q_data = f"?{input_query1}={value_query1}"
+  else:
+   q_data = f"?{input_query1}={value_query}"
+  var1 = requests.get(f"{colb}{q_data}", headers=req_header, allow_redirects=False)
 
- var1 = requests.get(f"{colb}", headers=req_header, allow_redirects=False)
  bo = var1.headers
- 
+ print(colored("===================[URL]=====================","red"))
+ print(colored(f"{colb}{q_data}","blue"))
 # Status Code Fetches
  bs = var1.status_code
+ 
  if bs == 200:
   bss = colored("200 OK","green")
  elif bs == 201:
@@ -508,54 +510,31 @@ def t_get():
   bss = colored("503 Service Unavailable","red")
  else:
   bss = colored(f"{bs}","cyan")
- 
-# Request Headers Show Off
- try:
-  bkk = header_count
- except NameError:
-  pass
- else:
-  try:
-   if header_count == 1:
-    aba = f"{note_head[0]}: {note_value[0]}"
-   elif header_count == 2:
-    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
-   elif header_count == 3:
-    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
-   elif header_count == 4:
-    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
-   elif header_count == 5:
-    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
-  except UnboundLocalError:
-   pass
-  else:
-   print('')
 
 # Request Conditions 
  try:
   print(colored("=================[Request]===================","red"))
-  print(colored(f""" GET {path2}{q_data} {http_s}
- Host: {input_host}
- {aba}
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
+  print(colored(f"""GET {path2}{q_data} {http_s}
+Host: {input_host}
+{aba}
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Connection: keep-alive
  
-  ""","green"))
+ ""","green"))
  except UnboundLocalError:
-  print(colored(f""" GET {path2}{q_data} {http_s}
- Host: {input_host}
- User-Agent: Python/3
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
+  print(colored(f"""GET {path2}{q_data} {http_s}
+Host: {input_host}
+User-Agent: Python/3
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Connection: keep-alive
  
-  ""","green"))
+ ""","green"))
   pass
  else:
   pass
-       
-       
+   
 # Response Header Fetches   
  hlist = []
  try:
@@ -710,34 +689,29 @@ def t_get():
 # DELETE REQUEST ENGINE
 def t_delete():
  
-# Header Writing With Count  
- req_header = {"User-Agent": "Python/3"}
- note_head = []
- note_value = []
+# DELETE Request Start
+ colb = f"{http_in}://{input_host}{path2}"
+
  try:
-  header_count = int(input("Header count[1,2,3,4,5]: "))
- except ValueError:
+  abf = input_query1
+  abe = value_query1
+ except NameError: 
+  q_data = ''
+  var1 = requests.delete(f"{colb}", headers=req_header, allow_redirects=False)
   pass
  else:
-  if header_count=='':
-   pass
+  value_query = input("parameter's value: ")
+  if value_query == '':
+   q_data = f"?{input_query1}={value_query1}"
   else:
-   for i in range(0,header_count):
-    input_header = input(f"Header{i}: ")
-    if input_header == '':
-     pass
-    else:
-     input_value = input(f"Header{i}'s value: ")
-     note_head.append(f"{input_header}")
-     note_value.append(f"{input_value}")
-     req_header[input_header] = f"{input_value}"
-
-# DELETE Request Start
- colb = f"{http_in}://{input_host}{path2}{q_data}"
-
- var1 = requests.delete(f"{colb}", headers=req_header, allow_redirects=False)
+   q_data = f"?{input_query1}={value_query}"
+  var1 = requests.delete(f"{colb}{q_data}", headers=req_header, allow_redirects=False)
+  
  bo = var1.headers
+ print(colored("===================[URL]=====================","red"))
+ print(colored(f"{colb}{q_data}","blue"))
  
+  
 # Status Code Fetches
  bs = var1.status_code
  if bs == 200:
@@ -762,47 +736,25 @@ def t_delete():
   bss = colored("503 Service Unavailable","red")
  else:
   bss = colored(f"{bs}","cyan")
- 
-# Request Headers Show Off
- try:
-  bkk = header_count
- except NameError:
-  pass
- else:
-  try:
-   if header_count == 1:
-    aba = f"{note_head[0]}: {note_value[0]}"
-   elif header_count == 2:
-    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
-   elif header_count == 3:
-    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
-   elif header_count == 4:
-    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
-   elif header_count == 5:
-    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
-  except UnboundLocalError:
-   pass
-  else:
-   print('')
 
 # Request Conditions 
  try:
   print(colored("=================[Request]===================","red"))
-  print(colored(f""" DELETE {path2}{q_data} {http_s}
- Host: {input_host}
- {aba}
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
+  print(colored(f"""DELETE {path2}{q_data} {http_s}
+Host: {input_host}
+{aba}
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Connection: keep-alive
  
-  ""","green"))
+""","green"))
  except UnboundLocalError:
-  print(colored(f""" DELETE {path2}{q_data} {http_s}
- Host: {input_host}
- User-Agent: Python/3
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
+  print(colored(f"""DELETE {path2}{q_data} {http_s}
+Host: {input_host}
+User-Agent: Python/3
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Connection: keep-alive
  
   ""","green"))
   pass
@@ -963,37 +915,39 @@ def t_delete():
 # POST REQUEST ENGINE
 def t_post():
  colb = f"{http_in}://{input_host}{path2}"
- input_queryType = input("Body Data Type[json/www]: ")
- q_data = {}
- note_jquery = []
- note_jvalue = []
- if input_queryType =='www':
-  input_query = input("Parameter: ")
-  q_data = input_query
-  var1 = requests.post(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
-  bo = var1.headers
- elif input_queryType =='json' or input_queryType =='j':
+ if d_type == 'json':
+  q_data = {}
+  inputt_query1 = []
+  valuee_query1 = []
   input_query_count = int(input("Json Keypair Count[1,2,3,4,5]: "))
   for i in range(0,input_query_count):
-   input_jquery = input(f"Json Key {i}: ")
-   note_jquery.append(input_jquery)
-   input_jvalue = input(f"Json Value {i}: ")
-   note_jvalue.append(input_jvalue)
+   input_jquery = input(f"Json Key {i+1}: ")
+   inputt_query1.append(input_jquery)
+   input_jvalue = input(f"Json Value {i+1}: ")
+   valuee_query1.append(input_jvalue)
    q_data[input_jquery] = input_jvalue
   var1 = requests.post(f"{colb}", headers=req_header, json=q_data, allow_redirects=False)
- else:
+ elif d_type == 'www':
   value_query = input("parameter's value: ")
   if value_query == '':
    q_data = f"{input_query1}={value_query1}"
   else:
    q_data = f"{input_query1}={value_query}"
-   
+   var1 = requests.post(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
   var1 = requests.post(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+ else:
+   value_query = input("parameter's value: ")
+   if value_query == '':
+    q_data = f"{input_query1}={value_query1}"
+   else:
+    q_data = f"{input_query1}={value_query}"
+   var1 = requests.post(f"{colb}", headers=req_header, data=q_data, allow_redirects=False) 
    
 # POST Request Start
  bo = var1.headers
  br = var1.request.headers
-
+ print(colored("===================[URL]=====================","red"))
+ print(colored(f"{colb}","blue"))
 # Request Content Fetch 
  try: 
   fc = br['Content-Length']
@@ -1026,51 +980,29 @@ def t_post():
   bss = colored("503 Service Unavailable","red")
  else:
   bss = colored(f"{bs}","cyan")
- 
-# Request Headers Show Off
- try:
-  bkk = header_count
- except NameError:
-  pass
- else:
-  try:
-   if header_count == 1:
-    aba = f"{note_head[0]}: {note_value[0]}"
-   elif header_count == 2:
-    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
-   elif header_count == 3:
-    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
-   elif header_count == 4:
-    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
-   elif header_count == 5:
-    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
-  except UnboundLocalError:
-   pass
-  else:
-   print('')
   
 # Request Conditions  
  try:
   print(colored("=================[Request]===================","red"))
-  print(colored(f""" POST {path2} {http_s}
- Host: {input_host}
- {aba}
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
- Content-Length: {cf}
+  print(colored(f"""POST {path2} {http_s}
+Host: {input_host}
+{aba}
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Connection: keep-alive
+Content-Length: {cf}
  
- {q_data}""","green"))
+{q_data}""","green"))
  except UnboundLocalError:
-  print(colored(f""" POST {path2} {http_s}
- Host: {input_host}
- User-Agent: Python/3
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
- Content-Length: {cf}
+  print(colored(f"""POST {path2} {http_s}
+Host: {input_host}
+User-Agent: Python/3
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Connection: keep-alive
+Content-Length: {cf}
   
- {q_data}""","green"))
+{q_data}""","green"))
   pass
  else:
   pass
@@ -1230,36 +1162,38 @@ def t_post():
 def t_patch():
 # PATCH Request Start
  colb = f"{http_in}://{input_host}{path2}"
- input_queryType = input("Body Data Type[json/www]: ")
- q_data = {}
- note_jquery = []
- note_jvalue = []
- if input_queryType =='www':
-  input_query = input("Parameter: ")
-  q_data = input_query
-  var1 = requests.patch(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
-  bo = var1.headers
- elif input_queryType =='json' or input_queryType =='j':
+ if d_type == 'json':
+  q_data = {}
+  inputt_query1 = []
+  valuee_query1 = []
   input_query_count = int(input("Json Keypair Count[1,2,3,4,5]: "))
   for i in range(0,input_query_count):
-   input_jquery = input(f"Json Key {i}: ")
-   note_jquery.append(input_jquery)
-   input_jvalue = input(f"Json Value {i}: ")
-   note_jvalue.append(input_jvalue)
+   input_jquery = input(f"Json Key {i+1}: ")
+   inputt_query1.append(input_jquery)
+   input_jvalue = input(f"Json Value {i+1}: ")
+   valuee_query1.append(input_jvalue)
    q_data[input_jquery] = input_jvalue
   var1 = requests.patch(f"{colb}", headers=req_header, json=q_data, allow_redirects=False)
- else:
+ elif d_type == 'www':
   value_query = input("parameter's value: ")
   if value_query == '':
    q_data = f"{input_query1}={value_query1}"
   else:
    q_data = f"{input_query1}={value_query}"
-   
+   var1 = requests.patch(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
   var1 = requests.patch(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+ else:
+   value_query = input("parameter's value: ")
+   if value_query == '':
+    q_data = f"{input_query1}={value_query1}"
+   else:
+    q_data = f"{input_query1}={value_query}"
+   var1 = requests.patch(f"{colb}", headers=req_header, data=q_data, allow_redirects=False) 
   
  bo = var1.headers
  br = var1.request.headers
-  
+ print(colored("===================[URL]=====================","red"))
+ print(colored(f"{colb}","blue"))
 # Request Content Fetch 
  try: 
   fc = br['Content-Length']
@@ -1292,51 +1226,30 @@ def t_patch():
   bss = colored("503 Service Unavailable","red")
  else:
   bss = colored(f"{bs}","cyan")
- 
-# Request Headers Show Off
- try:
-  bkk = header_count
- except NameError:
-  pass
- else:
-  try:
-   if header_count == 1:
-    aba = f"{note_head[0]}: {note_value[0]}"
-   elif header_count == 2:
-    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
-   elif header_count == 3:
-    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
-   elif header_count == 4:
-    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
-   elif header_count == 5:
-    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
-  except UnboundLocalError:
-   pass
-  else:
-   print('')
   
 # Request Conditions  
+
  try:
   print(colored("=================[Request]===================","red"))
-  print(colored(f""" PATCH {path2} {http_s}
- Host: {input_host}
- {aba}
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
- Content-Length: {cf}
+  print(colored(f"""PATCH {path2} {http_s}
+Host: {input_host}
+{aba}
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Connection: keep-alive
+Content-Length: {cf}
  
- {q_data}""","green"))
+{q_data}""","green"))
  except UnboundLocalError:
-  print(colored(f""" PATCH {path2} {http_s}
- Host: {input_host}
- User-Agent: Python/3
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
- Content-Length: {cf}
+  print(colored(f"""PATCH {path2} {http_s}
+Host: {input_host}
+User-Agent: Python/3
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Connection: keep-alive
+Content-Length: {cf}
   
- {q_data}""","green"))
+{q_data}""","green"))
   pass
  else:
   pass
@@ -1497,35 +1410,40 @@ def t_patch():
 def t_put():
 # PUT Request Start
  colb = f"{http_in}://{input_host}{path2}"
- input_queryType = input("Body Data Type[json/www]: ")
- q_data = {}
- note_jquery = []
- note_jvalue = []
- if input_queryType =='www':
-  input_query = input("Parameter: ")
-  q_data = input_query
-  var1 = requests.put(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
-  bo = var1.headers
- elif input_queryType =='json' or input_queryType =='j':
+ if d_type == 'json':
+  q_data = {}
+  inputt_query1 = []
+  valuee_query1 = []
   input_query_count = int(input("Json Keypair Count[1,2,3,4,5]: "))
   for i in range(0,input_query_count):
-   input_jquery = input(f"Json Key {i}: ")
-   note_jquery.append(input_jquery)
-   input_jvalue = input(f"Json Value {i}: ")
-   note_jvalue.append(input_jvalue)
+   input_jquery = input(f"Json Key {i+1}: ")
+   inputt_query1.append(input_jquery)
+   input_jvalue = input(f"Json Value {i+1}: ")
+   valuee_query1.append(input_jvalue)
    q_data[input_jquery] = input_jvalue
   var1 = requests.put(f"{colb}", headers=req_header, json=q_data, allow_redirects=False)
- else:
+ elif d_type == 'www':
   value_query = input("parameter's value: ")
   if value_query == '':
    q_data = f"{input_query1}={value_query1}"
   else:
    q_data = f"{input_query1}={value_query}"
-   
+   var1 = requests.put(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
   var1 = requests.put(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
-  
+ else:
+   value_query = input("parameter's value: ")
+   if value_query == '':
+    q_data = f"{input_query1}={value_query1}"
+   else:
+    q_data = f"{input_query1}={value_query}"
+   var1 = requests.put(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)  
+ 
+
  bo = var1.headers
  br = var1.request.headers
+ print(colored("===================[URL]=====================","red"))
+ print(colored(f"{colb}","blue")) 
+ 
 # Request Content Fetch 
  try: 
   fc = br['Content-Length']
@@ -1559,50 +1477,28 @@ def t_put():
  else:
   bss = colored(f"{bs}","cyan")
  
-# Request Headers Show Off
- try:
-  bkk = header_count
- except NameError:
-  pass
- else:
-  try:
-   if header_count == 1:
-    aba = f"{note_head[0]}: {note_value[0]}"
-   elif header_count == 2:
-    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}"
-   elif header_count == 3:
-    aba = f"{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}"
-   elif header_count == 4:
-    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}""" 
-   elif header_count == 5:
-    aba = f"""{note_head[0]}: {note_value[0]}\n {note_head[1]}: {note_value[1]}\n {note_head[2]}: {note_value[2]}\n {note_head[3]}: {note_value[3]}\n {note_head[4]}: {note_value[4]}""" 
-  except UnboundLocalError:
-   pass
-  else:
-   print('')
-  
 # Request Conditions  
  try:
   print(colored("=================[Request]===================","red"))
-  print(colored(f""" PUT {path2} {http_s}
- Host: {input_host}
- {aba}
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
- Content-Length: {cf}
+  print(colored(f"""PUT {path2} {http_s}
+Host: {input_host}
+{aba}
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Connection: keep-alive
+Content-Length: {cf}
  
  {q_data}""","green"))
  except UnboundLocalError:
-  print(colored(f""" PUT {path2} {http_s}
- Host: {input_host}
- User-Agent: Python/3
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
- Content-Length: {cf}
+  print(colored(f"""PUT {path2} {http_s}
+Host: {input_host}
+User-Agent: Python/3
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Connection: keep-alive
+Content-Length: {cf}
  
- {q_data}""","green"))
+{q_data}""","green"))
   pass
  else:
   pass
@@ -1759,7 +1655,7 @@ def t_put():
  
  
 # SET HOST AND PATH
-input_http1 = input("http or https : ")
+input_http1 = input(colored("http or https : ","cyan"))
 if input_http1 =='' or input_http1=='http':
  http_in = 'http'
  http_s = 'HTTP/1.1'
@@ -1776,10 +1672,10 @@ else:
 # Main Program Start
 
 print(colored(f"Current Protocol Set To : {http_s}","magenta")) 
-input_host1 = input("Hostname: ")
+input_host1 = input(colored("Hostname: ","cyan"))
 if input_host1 == '':
- print("ERROR !! please specify the host name ")
- input_host1 = input("Hostname: ")
+ print(colored("ERROR !! please specify the host name ","red"))
+ input_host1 = input(colored("Hostname: ","cyan"))
  input_host = input_host1
  print(colored(f"Current Hostname Set To : {input_host}","magenta"))
 else:
@@ -1787,73 +1683,62 @@ else:
  print(colored(f"Current Hostname Set To : {input_host}","magenta"))
  
 # main path
-input_path = input("Path: ")
+input_path = input(colored("Path: ","cyan"))
 try:
  if input_path[0] == '/':
   path2 = input_path
  else:
-  path_te = input_path[1:]
+  path_te = input_path[0:]
   path2 = f"/{path_te}"
 except IndexError:
  path2 = f"/{input_path}"
  pass
 print(colored(f"Current Path Set To : {path2}","magenta"))
-
-# Parameter Specify
-input_query = input("parameter: ")
-value_query = input("parmeter's value: ")
-if input_query == '' and value_query == '':
- q_data = ''
- pass
-else:
- try:
-  if input_query[0]=="?":
-   q_data = f"{input_query}={value_query}"
-   print(colored(f"Current URL parameter & value set to : {q_data}\n","magenta"))
-  else:
-   q_data = f"?{input_query}={value_query}"
-   print(colored(f"Current URL parameter & value set to : {q_data}\n","magenta"))
- except IndexError:
-  q_data = ""
-  pass
    
+input_query = ''
+value_query = ''
+q_data = ''
 
 req_header = {"User-Agent": "Python/3"}
+aba = "User-Agent: Python/3"
+d_type = "www"
 
 
 while True:
  input_main = input(colored("""[engine] > """,'red'))
  if input_main == 'help' :
   print(colored("""
-   help           - info about command and caller mode 
-   exit           - exit from request engine
-   show           - show current request  
-   set-host / sh  - setting of http & host 
-   set-path / sp  - setting of path
-   set-para/ spa  - setting of get parameter
-   set-header/ sh - setting of headers
-   get / g        - get request engine
-   post / p       - post request engine
-   delete / d     - delete request engine
-   put / P        - put request engine
-   patch / pat    - patch request engine
-   options/o      - options request engine
-   head / h       - head request engine     
+ help            - help mode 
+ exit            - exit from request engine
+ show            - show current request  
+ set-host / sh   - setting of http & host 
+ set-header / sh - setting of headers
+ set-path / sp   - setting of path
+ set-para / spa  - setting of get parameter
+ set-json / sj   - setting of json body [POST/PUT/PATCH]
+ get / rg        - get request engine
+ post / rp       - post request engine
+ delete / rd     - delete request engine
+ put / rP        - put request engine
+ patch / rpat    - patch request engine
+ options / ro    - options request engine
+ head / rh       - head request engine  
   """,'yellow'))
  elif input_main == 'exit' or input_main == 'e':
   sys.exit()
   
  elif input_main == 'show':  
   print(colored(f"""
- -------[Current--Request]---------- 
- [METHOD] {path2}{q_data} {http_s}
- Host: {input_host}
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
+-------[Current--Request]---------- 
+[METHOD] {path2}{q_data} {http_s}
+Host: {input_host}
+{aba}
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Connection: keep-alive
  
- {q_data}
- -----------------------------------""","magenta"))
+{q_data}
+-----------------------------------""","magenta"))
  
  elif input_main == 'set-host' or input_main == 'sh':
   print(colored("[+] Request Host Settings [activated]\n","green"))
@@ -1905,16 +1790,9 @@ while True:
  elif input_main == 'set-para' or input_main == 'spa':
   print(colored("[+] Request Parameter Settings [activated]","green"))
   print(colored(f"\n- Current Parameter : {q_data}\n","magenta"))
+  d_type = 'www'
   input_query1 = input("parameter: ")
-  if input_query1 == '':
-   input_query1 = input_query
-  else:
-   pass
   value_query1 = input("parameter's value: ")
-  if value_query1 == '':
-   value_query1 = value_query
-  else:
-   pass
   try:
    if input_query1[0]=="?":
     q_data = f"{input_query1}={value_query1}"
@@ -1925,6 +1803,8 @@ while True:
    pass
   print(colored(f"Current Parameter & value set to : {q_data}\n","red"))
 
+
+# Header setting
  elif input_main == 'set-header' or input_main == 'sh':
   print(colored("[+] Request Header Settings [activated]\n","green"))
   
@@ -1932,159 +1812,162 @@ while True:
 # Header Writing With Count
   note_head = []
   note_value = []
+  header_count_l = []
+  headers_i = []
   try:
    header_count = int(input("Header count[1,2,3,4,5]: "))
   except ValueError:
-   pass
-  else:
-   if header_count=='':
+   try:
+    header_count = header_count_l[0]
+   except IndexError:
     pass
    else:
-    for i in range(0,header_count):
-     input_header = input(f"Header{i}: ")
-     if input_header == '':
+    print('')
+   for i in range(0,header_count):
+    input_header = input(f"Header{i+1}: ")
+    if input_header == '':
+     try:
+      input_header == headers_i[0]
+     except IndexError:
       pass
-     else:
-      input_value = input(f"Header{i}'s value: ")
-      print(colored(f"Current Header{i} & value{i} set to > {input_header}: {input_value}\n","red"))
-      note_head.append(f"{input_header}")
-      note_value.append(f"{input_value}")
-      req_header[input_header] = f"{input_value}"
+     else: 
+      input_header == headers_i[0]
+      pass
+    else:
+     input_value = input(f"Header{i+1}'s value: ")
+     print(colored(f"Current Header{i+1} & value{i} set to > {input_header}: {input_value}","red"))
+     note_head.append(f"{input_header}")
+     note_value.append(f"{input_value}")
+     req_header[input_header] = f"{input_value}"
+  else:
+   header_count_l.append(header_count)
+   for i in range(0,header_count):
+    input_header = input(f"Header{i+1}: ")
+    if input_header == '':
+     try:
+      input_header == headers_i[0]
+     except IndexError:
+      pass
+     else: 
+      input_header == headers_i[0]
+      pass
+    else:
+     input_value = input(f"Header{i+1}'s value: ")
+     print(colored(f"Current Header{i+1} & value{i} set to > {input_header}: {input_value}","red"))
+     note_head.append(f"{input_header}")
+     note_value.append(f"{input_value}")
+     req_header[input_header] = f"{input_value}"
+
+# Request Headers Show Off
+  try:
+   acc = header_count
+  except NameError:
+   aba = "User-Agent: Python/3"
+   pass
+  else:
+   try:
+    if header_count == 1:
+     aba = f"{note_head[0]}: {note_value[0]}"
+    elif header_count == 2:
+     aba = f"{note_head[0]}: {note_value[0]}\n{note_head[1]}: {note_value[1]}"
+    elif header_count == 3:
+     aba = f"{note_head[0]}: {note_value[0]}\n{note_head[1]}: {note_value[1]}\n{note_head[2]}: {note_value[2]}"
+    elif header_count == 4:
+     aba = f"""{note_head[0]}: {note_value[0]}\n{note_head[1]}: {note_value[1]}\n{note_head[2]}: {note_value[2]}\n{note_head[3]}: {note_value[3]}""" 
+    elif header_count == 5:
+     aba = f"""{note_head[0]}: {note_value[0]}\n{note_head[1]}: {note_value[1]}\n{note_head[2]}: {note_value[2]}\n{note_head[3]}: {note_value[3]}\n{note_head[4]}: {note_value[4]}""" 
+   except UnboundLocalError or IndexError:
+    pass
+   else:
+    print('')
+
+# Json Request setting
+ elif input_main == 'set-json' or input_main == 'sj':
+  print(colored("[+] JSON Request Setting [activated]\n","green"))
+  d_type = 'json'
+  print(colored("[+]Current Data Type sets to [application/json]","red"))
   
 # Get request option 
- elif input_main == 'get' or input_main == 'rg':
+ elif input_main == 'get' or input_main == 'g':
   print(colored("[+] GET Request engine [activated]\n","green"))
   t_get()
   
 # Post request option
- elif input_main == 'post' or input_main =='rp':
-  try: 
-   a = input_query1
-   b = value_query1
-  except NameError:
-   print(colored("[!]You need to specify Post Request Parameter using 'set-para' or 'spa' in [engine] section \n","magenta"))
-   pass
-  else:
-   print(colored("[+] POST Request engine [activated]\n","green"))
-   print(colored(f"""
- -------[Current--Request]---------- 
- POST {path2} {http_s}
- Host: {input_host}
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
- Content-Type: [content-type]
- Content-Length: 0
- 
- {input_query1}={value_query1}
- -----------------------------------""","magenta"))
+ elif input_main == 'post' or input_main =='p':
+  if d_type == 'json':
    t_post()
+  else:
+   try: 
+    a = input_query1
+    b = value_query1
+   except NameError:
+    print(colored("""[!]You need to specify Request Body Parameter using 'set-para' or 'spa' for [application/www-form-url-encoded] 'json' for [application/json] type body data \n""","cyan"))
+    pass
+   else:
+    print(colored("[+] POST Request engine [activated]\n","green"))
+    t_post()
 
 # Delete request option
- elif input_main == 'delete' or input_main =='rd':
+ elif input_main == 'delete' or input_main =='d':
   print(colored("[+] DELETE Request engine [activated]\n","green"))
-  print(colored(f"""
- -------[Current--Request]---------- 
- DELETE {path2}{q_data} {http_s}
- Host: {input_host}
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
- 
- -----------------------------------""","magenta"))
   t_delete()
   
 # Put request option
- elif input_main == 'put' or input_main =='rP':
-  try: 
-   a = input_query1
-   b = value_query1
-  except NameError:
-   print(colored("[!]You need to specify Put Request Parameter using 'set-para' or 'spa' in [engine] section \n","magenta"))
-   pass
-  else:
-   print(colored("[+] PUT Request engine [activated]\n","green"))
-   print(colored(f"""
- -------[Current--Request]---------- 
- PUT {path2} {http_s}
- Host: {input_host}
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
- Content-Type: [content-type]
- Content-Length: 0
- 
- {input_query1}={value_query1}
- -----------------------------------""","magenta"))
+ elif input_main == 'put' or input_main =='P':
+  if d_type == 'json':
    t_put()
+  else:
+   try: 
+    a = input_query1
+    b = value_query1
+   except NameError:
+    print(colored("""[!]You need to specify Request Body Parameter using 'set-para' or 'spa' for [application/www-form-url-encoded] 'json' for [application/json] type body data \n""","cyan"))
+    pass
+   else:
+    print(colored("[+] PUT Request engine [activated]\n","green"))
+    t_put()
   
 # Option request option
- elif input_main == 'options' or input_main =='ro':
+ elif input_main == 'options' or input_main =='o':
   print(colored("[+] OPTIONS Request engine [activated]\n","green"))
-  print(colored(f"""
- -------[Current--Request]---------- 
- OPTIONS {path2}{q_data} {http_s}
- Host: {input_host}
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
- 
- -----------------------------------""","magenta"))
   t_options()
 
 # Head request option
- elif input_main == 'head' or input_main =='rh':
+ elif input_main == 'head' or input_main =='h':
   print(colored("[+] HEAD Request engine [activated]\n","green"))
-  print(colored(f"""
- -------[Current--Request]---------- 
- HEAD {path2}{q_data} {http_s}
- Host: {input_host}
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
- 
- -----------------------------------""","magenta"))
   t_head()  
   
 # Patch request option
- elif input_main == 'patch' or input_main =='rpat':
-  try: 
-   a = input_query1
-   b = value_query1
-  except NameError:
-   print(colored("[!]You need to specify Patch Request Parameter using 'set-para' or 'spa' in [engine] section \n","magenta"))
-   pass
-  else:
-   print(colored("[+] PATCH Request engine [activated]\n","green"))
-   print(colored(f"""
- -------[Current--Request]---------- 
- PATCH {path2} {http_s}
- Host: {input_host}
- Accept-Encoding: gzip, deflate, br
- Accept: */*
- Connection: keep-alive
- Content-Type: [content-type]
- Content-Length: 0
- 
- {input_query1}={value_query1}
- -----------------------------------""","magenta"))
+ elif input_main == 'patch' or input_main =='pat':
+  if d_type == 'json':
    t_patch()
+  else:
+   try: 
+    a = input_query1
+    b = value_query1
+   except NameError:
+    print(colored("""[!]You need to specify Request Body Parameter using 'set-para' or 'spa' for [application/www-form-url-encoded] 'json' for [application/json] type body data \n""","cyan"))
+    pass
+   else:
+    print(colored("[+] PATCH Request engine [activated]\n","green"))
+    t_patch()
   
 # Else option to help
  else:
   print(colored("""
-   help           - info about command and caller mode 
-   exit           - exit from request engine
-   show           - show current request  
-   set-host / sh  - setting of http & host 
-   set-path / sp  - setting of path
-   set-para/ spa  - setting of get parameter
-   set-header/ sh - setting of headers
-   get / g        - get request engine
-   post / p       - post request engine
-   delete / d     - delete request engine
-   put / P        - put request engine
-   patch / pat    - patch request engine
-   options/o      - options request engine
-   head / h       - head request engine  
+ help            - help mode
+ exit            - exit from request engine
+ show            - show current request  
+ set-host / sh   - setting of http & host 
+ set-header / sh - setting of headers
+ set-path / sp   - setting of path
+ set-para / spa  - setting of get parameter
+ set-json / sj   - setting of json body [POST/PUT/PATCH]
+ get / g        - get request engine
+ post / p       - post request engine
+ delete / d     - delete request engine
+ put / P        - put request engine
+ patch / pat    - patch request engine
+ options / o    - options request engine
+ head / h       - head request engine
   """,'yellow'))
