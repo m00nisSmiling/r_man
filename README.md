@@ -1,6 +1,5 @@
 # r_man
 Manual Request Engine For Termux / Linux / Windows 
-![Screenshot_2024-08-03_22_08_11](https://github.com/user-attachments/assets/e22721a9-2440-4150-9dda-379e24f96bdc)
 
 
 # Installation
