@@ -29,7 +29,7 @@ def t_options():
    q_data = f"?{input_query1}={value_query1}"
   else:
    q_data = f"?{input_query1}={value_query}"
-  var1 = requests.options(f"{colb}{q_data}", headers=req_header, allow_redirects=False)
+  var1 = requests.options(f"{colb}",params=q_data[1:] , headers=req_header, allow_redirects=False)
   
  bo = var1.headers
  print(colored("===================[URL]=====================","red"))
@@ -255,7 +255,7 @@ def t_head():
    q_data = f"?{input_query1}={value_query1}"
   else:
    q_data = f"?{input_query1}={value_query}"
-  var1 = requests.head(f"{colb}{q_data}", headers=req_header, allow_redirects=False)
+  var1 = requests.head(f"{colb}",params=q_data[1:],headers=req_header, allow_redirects=False)
   
  bo = var1.headers
  print(colored("===================[URL]=====================","red"))
@@ -480,7 +480,7 @@ def t_get():
    q_data = f"?{input_query1}={value_query1}"
   else:
    q_data = f"?{input_query1}={value_query}"
-  var1 = requests.get(f"{colb}{q_data}", headers=req_header, allow_redirects=False)
+  var1 = requests.get(f"{colb}",params=q_data[1:], headers=req_header, allow_redirects=False)
 
  bo = var1.headers
  print(colored("===================[URL]=====================","red"))
@@ -705,7 +705,7 @@ def t_delete():
    q_data = f"?{input_query1}={value_query1}"
   else:
    q_data = f"?{input_query1}={value_query}"
-  var1 = requests.delete(f"{colb}{q_data}", headers=req_header, allow_redirects=False)
+  var1 = requests.delete(f"{colb}",params=q_data[1:], headers=req_header, allow_redirects=False)
   
  bo = var1.headers
  print(colored("===================[URL]=====================","red"))
@@ -1737,7 +1737,7 @@ Accept-Encoding: gzip, deflate, br
 Accept: */*
 Connection: keep-alive
  
-{q_data}
+{q_data[1:]}
 -----------------------------------""","magenta"))
  
  elif input_main == 'set-host' or input_main == 'sh':
