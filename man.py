@@ -1671,17 +1671,30 @@ else:
 
 # Main Program Start
 
+
 print(colored(f"Current Protocol Set To : {http_s}","magenta")) 
 input_host1 = input(colored("Hostname: ","cyan"))
 if input_host1 == '':
  print(colored("ERROR !! please specify the host name ","red"))
  input_host1 = input(colored("Hostname: ","cyan"))
- input_host = input_host1
+ input_host2 = input_host1
+ print(colored(f"Current Hostname Set To : {input_host}","magenta"))
+else:
+ input_host2 = input_host1
+
+ 
+if input_host1[0:8] == 'https://':
+ input_host = input_host1[8:]
+ print(colored(f"Current Hostname Set To : {input_host}","magenta"))
+elif input_host1[0:7] == 'http://':
+ input_host = input_host1[7:]
  print(colored(f"Current Hostname Set To : {input_host}","magenta"))
 else:
  input_host = input_host1
  print(colored(f"Current Hostname Set To : {input_host}","magenta"))
- 
+ pass
+
+
 # main path
 input_path = input(colored("Path: ","cyan"))
 try:
@@ -1749,6 +1762,7 @@ Connection: keep-alive
   input_http = input("http or https : ")
   if input_http == '':
    input_http == input_http1
+   print(colored(f"Current HTTP version set to : {http_s}\n","red"))
   else:
    if input_http=='http':
     http_in = 'http'
@@ -1767,6 +1781,15 @@ Connection: keep-alive
    input_host = input_host1
    print(colored(f"Current Host set to : {input_host}\n","red"))
   else:
+   if input_host[0:8] == 'https://':
+    input_host = input_host[8:]
+    print(colored(f"Current Hostname Set To : {input_host}","magenta"))
+   elif input_host[0:7] == 'http://':
+    input_host = input_host[7:]
+    print(colored(f"Current Hostname Set To : {input_host}","magenta"))
+   else:
+    print(colored(f"Current Hostname Set To : {input_host}","magenta"))
+    pass
    print(colored(f"Current Host set to : {input_host}\n","red"))
 
 # Path Setting  
