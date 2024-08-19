@@ -29,3 +29,4 @@ Manual Request Engine For Termux / Linux / Windows
 ##### patch / pat    - patch request engine
 ##### options / o    - options request engine
 ##### head / h       - head request engine
+##### nbrute / nbm    - null bruteforce engine 
