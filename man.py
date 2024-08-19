@@ -21,7 +21,12 @@ def t_options():
   abe = value_query1
  except NameError: 
   q_data = ''
-  var1 = requests.options(f"{colb}", headers=req_header, allow_redirects=False)
+  if nbm_value == 1:
+   var1 = requests.options(f"{colb}", headers=req_header, allow_redirects=False)
+  else:
+   for i in range(nbm_value):
+    var1 = requests.options(f"{colb}", headers=req_header, allow_redirects=False)
+    print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code)
   pass
  else:
   value_query = input("parameter's value: ")
@@ -29,7 +34,13 @@ def t_options():
    q_data = f"?{input_query1}={value_query1}"
   else:
    q_data = f"?{input_query1}={value_query}"
+ if nbm_value == 1:
   var1 = requests.options(f"{colb}",params=q_data[1:] , headers=req_header, allow_redirects=False)
+ else:
+  for i in range(nbm_value):
+   var1 = requests.options(f"{colb}",params=q_data[1:] , headers=req_header, allow_redirects=False)
+   print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code)
+  
   
  bo = var1.headers
  print(colored("===================[URL]=====================","red"))
@@ -247,7 +258,13 @@ def t_head():
   abe = value_query1
  except NameError: 
   q_data = ''
-  var1 = requests.head(f"{colb}", headers=req_header, allow_redirects=False)
+  if nbm_value == 1:
+   var1 = requests.head(f"{colb}", headers=req_header, allow_redirects=False)
+  else:
+   for i in range(nbm_value):
+    var1 = requests.head(f"{colb}", headers=req_header, allow_redirects=False)
+    print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code)
+  
   pass
  else:
   value_query = input("parameter's value: ")
@@ -255,7 +272,13 @@ def t_head():
    q_data = f"?{input_query1}={value_query1}"
   else:
    q_data = f"?{input_query1}={value_query}"
-  var1 = requests.head(f"{colb}",params=q_data[1:],headers=req_header, allow_redirects=False)
+  if nbm_value == 1:
+   var1 = requests.head(f"{colb}",params=q_data[1:],headers=req_header, allow_redirects=False)
+  else:
+   for i in range(nbm_value):
+    var1 = requests.head(f"{colb}",params=q_data[1:],headers=req_header, allow_redirects=False)
+    print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code)
+  
   
  bo = var1.headers
  print(colored("===================[URL]=====================","red"))
@@ -472,7 +495,12 @@ def t_get():
   abe = value_query1
  except NameError: 
   q_data = ''
-  var1 = requests.get(f"{colb}", headers=req_header, allow_redirects=False)
+  if nbm_value == 1:
+   var1 = requests.get(f"{colb}", headers=req_header, allow_redirects=False)
+  else:
+   for i in range(nbm_value):
+    var1 = requests.get(f"{colb}", headers=req_header, allow_redirects=False)
+    print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code)
   pass
  else:
   value_query = input("parameter's value: ")
@@ -480,7 +508,13 @@ def t_get():
    q_data = f"?{input_query1}={value_query1}"
   else:
    q_data = f"?{input_query1}={value_query}"
-  var1 = requests.get(f"{colb}",params=q_data[1:], headers=req_header, allow_redirects=False)
+  if nbm_value == 1:
+   var1 = requests.get(f"{colb}",params=q_data[1:], headers=req_header, allow_redirects=False)
+  else:
+   for i in range(nbm_value):
+    var1 = requests.get(f"{colb}",params=q_data[1:], headers=req_header, allow_redirects=False)
+    print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code)
+  
 
  bo = var1.headers
  print(colored("===================[URL]=====================","red"))
@@ -697,7 +731,12 @@ def t_delete():
   abe = value_query1
  except NameError: 
   q_data = ''
-  var1 = requests.delete(f"{colb}", headers=req_header, allow_redirects=False)
+  if nbm_value == 1:
+   var1 = requests.delete(f"{colb}", headers=req_header, allow_redirects=False)
+  else:
+   for i in range(nbm_value):
+    var1 = requests.delete(f"{colb}", headers=req_header, allow_redirects=False)
+    print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code)
   pass
  else:
   value_query = input("parameter's value: ")
@@ -705,7 +744,13 @@ def t_delete():
    q_data = f"?{input_query1}={value_query1}"
   else:
    q_data = f"?{input_query1}={value_query}"
-  var1 = requests.delete(f"{colb}",params=q_data[1:], headers=req_header, allow_redirects=False)
+  if nbm_value == 1:
+    var1 = requests.delete(f"{colb}",params=q_data[1:], headers=req_header, allow_redirects=False)
+  else:
+   for i in range(nbm_value):
+     var1 = requests.delete(f"{colb}",params=q_data[1:], headers=req_header, allow_redirects=False)
+     print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code)
+ 
   
  bo = var1.headers
  print(colored("===================[URL]=====================","red"))
@@ -926,22 +971,46 @@ def t_post():
    input_jvalue = input(f"Json Value {i+1}: ")
    valuee_query1.append(input_jvalue)
    q_data[input_jquery] = input_jvalue
-  var1 = requests.post(f"{colb}", headers=req_header, json=q_data, allow_redirects=False)
+  if nbm_value == 1:
+   var1 = requests.post(f"{colb}", headers=req_header, json=q_data, allow_redirects=False)
+  else:
+   for i in range(nbm_value):
+    var1 = requests.post(f"{colb}", headers=req_header, json=q_data, allow_redirects=False)
+    print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code)
+  
  elif d_type == 'www':
   value_query = input("parameter's value: ")
   if value_query == '':
    q_data = f"{input_query1}={value_query1}"
   else:
    q_data = f"{input_query1}={value_query}"
+   if nbm_value == 1:
+    var1 = requests.post(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+   else:
+    for i in range(nbm_value):
+     var1 = requests.post(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+     print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code)
+
+  if nbm_value == 1:
    var1 = requests.post(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
-  var1 = requests.post(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+  else:
+   for i in range(nbm_value):
+    var1 = requests.post(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+    print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code)   
+  
  else:
    value_query = input("parameter's value: ")
    if value_query == '':
     q_data = f"{input_query1}={value_query1}"
    else:
     q_data = f"{input_query1}={value_query}"
-   var1 = requests.post(f"{colb}", headers=req_header, data=q_data, allow_redirects=False) 
+   if nbm_value == 1:
+    var1 = requests.post(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+   else:
+    for i in range(nbm_value):
+     var1 = requests.post(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+     print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code)   
+    
    
 # POST Request Start
  bo = var1.headers
@@ -1173,22 +1242,46 @@ def t_patch():
    input_jvalue = input(f"Json Value {i+1}: ")
    valuee_query1.append(input_jvalue)
    q_data[input_jquery] = input_jvalue
-  var1 = requests.patch(f"{colb}", headers=req_header, json=q_data, allow_redirects=False)
+  if nbm_value == 1:
+    var1 = requests.patch(f"{colb}", headers=req_header, json=q_data, allow_redirects=False)
+  else:
+   for i in range(nbm_value):
+    var1 = requests.patch(f"{colb}", headers=req_header, json=q_data, allow_redirects=False)
+    print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code) 
+  
  elif d_type == 'www':
   value_query = input("parameter's value: ")
   if value_query == '':
    q_data = f"{input_query1}={value_query1}"
   else:
    q_data = f"{input_query1}={value_query}"
-   var1 = requests.patch(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
-  var1 = requests.patch(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+   if nbm_value == 1:
+     var1 = requests.patch(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+   else:
+    for i in range(nbm_value):
+     var1 = requests.patch(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+     print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code) 
+
+  if nbm_value == 1:
+    var1 = requests.patch(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+  else:
+   for i in range(nbm_value):
+    var1 = requests.patch(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+    print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code) 
+  
  else:
    value_query = input("parameter's value: ")
    if value_query == '':
     q_data = f"{input_query1}={value_query1}"
    else:
     q_data = f"{input_query1}={value_query}"
-   var1 = requests.patch(f"{colb}", headers=req_header, data=q_data, allow_redirects=False) 
+   if nbm_value == 1:
+     var1 = requests.patch(f"{colb}", headers=req_header, data=q_data, allow_redirects=False) 
+   else:
+    for i in range(nbm_value):
+     var1 = requests.patch(f"{colb}", headers=req_header, data=q_data, allow_redirects=False) 
+     print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code) 
+   
   
  bo = var1.headers
  br = var1.request.headers
@@ -1421,22 +1514,46 @@ def t_put():
    input_jvalue = input(f"Json Value {i+1}: ")
    valuee_query1.append(input_jvalue)
    q_data[input_jquery] = input_jvalue
-  var1 = requests.put(f"{colb}", headers=req_header, json=q_data, allow_redirects=False)
+  if nbm_value == 1:
+    var1 = requests.put(f"{colb}", headers=req_header, json=q_data, allow_redirects=False)
+  else:
+   for i in range(nbm_value):
+     var1 = requests.put(f"{colb}", headers=req_header, json=q_data, allow_redirects=False)
+     print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code)
+  
  elif d_type == 'www':
   value_query = input("parameter's value: ")
   if value_query == '':
    q_data = f"{input_query1}={value_query1}"
   else:
    q_data = f"{input_query1}={value_query}"
-   var1 = requests.put(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
-  var1 = requests.put(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+   if nbm_value == 1:
+     var1 = requests.put(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+   else:
+    for i in range(nbm_value):
+      var1 = requests.put(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+      print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code)
+
+  if nbm_value == 1:
+    var1 = requests.put(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+  else:
+   for i in range(nbm_value):
+    var1 = requests.put(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+    print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code) 
+   
  else:
    value_query = input("parameter's value: ")
    if value_query == '':
     q_data = f"{input_query1}={value_query1}"
    else:
     q_data = f"{input_query1}={value_query}"
-   var1 = requests.put(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)  
+   if nbm_value == 1:
+     var1 = requests.put(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+   else:
+    for i in range(nbm_value):
+     var1 = requests.put(f"{colb}", headers=req_header, data=q_data, allow_redirects=False)
+     print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code) 
+     
  
 
  bo = var1.headers
@@ -1673,12 +1790,11 @@ else:
 
 
 print(colored(f"Current Protocol Set To : {http_s}","magenta")) 
-input_host1 = input(colored("Hostname: ","cyan"))
+input_host1 = input(colored("Hostname      : ","cyan"))
 if input_host1 == '':
  print(colored("ERROR !! please specify the host name ","red"))
- input_host1 = input(colored("Hostname: ","cyan"))
+ input_host1 = input(colored("Hostname      : ","cyan"))
  input_host2 = input_host1
- print(colored(f"Current Hostname Set To : {input_host}","magenta"))
 else:
  input_host2 = input_host1
 
@@ -1696,7 +1812,7 @@ else:
 
 
 # main path
-input_path = input(colored("Path: ","cyan"))
+input_path = input(colored("Path          : ","cyan"))
 try:
  if input_path[0] == '/':
   path2 = input_path
@@ -1711,6 +1827,7 @@ print(colored(f"Current Path Set To : {path2}","magenta"))
 input_query = ''
 value_query = ''
 q_data = ''
+nbm_value = 1
 
 req_header = {"User-Agent": "Python/3"}
 aba = "User-Agent: Python/3"
@@ -1721,7 +1838,7 @@ while True:
  input_main = input(colored("""[engine] > """,'red'))
  if input_main == 'help' :
   print(colored("""
- help            - help mode 
+ help            - help mode
  exit            - exit from request engine
  show            - show current request  
  set-host / sh   - setting of http & host 
@@ -1729,13 +1846,14 @@ while True:
  set-path / sp   - setting of path
  set-para / spa  - setting of get parameter
  set-json / sj   - setting of json body [POST/PUT/PATCH]
- get / rg        - get request engine
- post / rp       - post request engine
- delete / rd     - delete request engine
- put / rP        - put request engine
- patch / rpat    - patch request engine
- options / ro    - options request engine
- head / rh       - head request engine  
+ get / g         - get request engine
+ post / p        - post request engine
+ delete / d      - delete request engine
+ put / P         - put request engine
+ patch / pat     - patch request engine
+ options / o     - options request engine
+ head / h        - head request engine
+ nbrute / nbm    - null bruteforce engine 
   """,'yellow'))
  elif input_main == 'exit' or input_main == 'e':
   sys.exit()
@@ -1754,15 +1872,15 @@ Connection: keep-alive
 -----------------------------------""","magenta"))
  
  elif input_main == 'set-host' or input_main == 'sh':
-  print(colored("[+] Request Host Settings [activated]\n","green"))
-  print(colored(f"\n- Current HTTP version : {http_s}","magenta"))
-  print(colored(f"- Current Host : {input_host}\n","magenta"))
+  print(colored("[+] Request Host Settings [activated]","green"))
+  print(colored(f"- Current HTTP version : {http_s}","magenta"))
+  print(colored(f"- Current Host : {input_host}","magenta"))
   
 # SET HOST AND PATH
   input_http = input("http or https : ")
   if input_http == '':
    input_http == input_http1
-   print(colored(f"Current HTTP version set to : {http_s}\n","red"))
+   print(colored(f"Current HTTP version set to : {http_s}","red"))
   else:
    if input_http=='http':
     http_in = 'http'
@@ -1775,27 +1893,26 @@ Connection: keep-alive
    else:
     http_in = 'http'
     http_s = 'HTTP/1.1'
-   print(colored(f"Current HTTP version set to : {http_s}\n","red"))  
+   print(colored(f"Current HTTP version set to : {http_s}","red"))  
   input_host = input("Hostname: ")
   if input_host == '':
    input_host = input_host1
-   print(colored(f"Current Host set to : {input_host}\n","red"))
+   print(colored(f"Current Host set to : {input_host}","red"))
   else:
    if input_host[0:8] == 'https://':
     input_host = input_host[8:]
-    print(colored(f"Current Hostname Set To : {input_host}","magenta"))
+    print(colored(f"Current Hostname Set To : {input_host}","red"))
    elif input_host[0:7] == 'http://':
     input_host = input_host[7:]
-    print(colored(f"Current Hostname Set To : {input_host}","magenta"))
+    print(colored(f"Current Hostname Set To : {input_host}","red"))
    else:
-    print(colored(f"Current Hostname Set To : {input_host}","magenta"))
+    print(colored(f"Current Hostname Set To : {input_host}","red"))
     pass
-   print(colored(f"Current Host set to : {input_host}\n","red"))
+   
 
 # Path Setting  
  elif input_main == 'set-path' or input_main == 'sp':
   print(colored("[+] Request Path Settings [activated]","green"))
-  print(colored(f"\n- Current Path : {path2}\n","magenta"))
   input_path = input("Path: ")
   try:
    if input_path[0] == '/':
@@ -1806,13 +1923,21 @@ Connection: keep-alive
   except IndexError:
    path2 = f"/{input_path}"
    pass 
-  print(colored(f"Current Path set to : {path2}\n","red"))
+  print(colored(f"Current Path set to : {path2}","red"))
 
-  
+# Brute Mode
+ elif input_main == 'nbrute' or input_main == 'nbm':
+  print(colored("[+] Null Bruteforce Mode Settings [activated]","green"))
+  try:
+   n_value = int(input("Request Count Per Engine [CPE] : "))
+  except ValueError:
+   nbm_value = 1
+  else:
+   nbm_value = n_value
+     
 # Parameter Setting
  elif input_main == 'set-para' or input_main == 'spa':
   print(colored("[+] Request Parameter Settings [activated]","green"))
-  print(colored(f"\n- Current Parameter : {q_data}\n","magenta"))
   d_type = 'www'
   input_query1 = input("parameter: ")
   value_query1 = input("parameter's value: ")
@@ -1824,12 +1949,12 @@ Connection: keep-alive
   except IndexError:
    q_data = ""
    pass
-  print(colored(f"Current Parameter & value set to : {q_data}\n","red"))
+  print(colored(f"Current Parameter & value set to : {q_data}","red"))
 
 
 # Header setting
  elif input_main == 'set-header' or input_main == 'sh':
-  print(colored("[+] Request Header Settings [activated]\n","green"))
+  print(colored("[+] Request Header Settings [activated]","green"))
   
   
 # Header Writing With Count
@@ -1906,13 +2031,13 @@ Connection: keep-alive
 
 # Json Request setting
  elif input_main == 'set-json' or input_main == 'sj':
-  print(colored("[+] JSON Request Setting [activated]\n","green"))
+  print(colored("[+] JSON Request Setting [activated]","green"))
   d_type = 'json'
-  print(colored("[+]Current Data Type sets to [application/json]","red"))
+  print(colored("[+]Current Data Type sets to [application/json]","magenta"))
   
 # Get request option 
  elif input_main == 'get' or input_main == 'g':
-  print(colored("[+] GET Request engine [activated]\n","green"))
+  print(colored("[+] GET Request engine [activated]","green"))
   t_get()
   
 # Post request option
@@ -1927,12 +2052,12 @@ Connection: keep-alive
     print(colored("""[!]You need to specify Request Body Parameter using 'set-para' or 'spa' for [application/www-form-url-encoded] 'json' for [application/json] type body data \n""","cyan"))
     pass
    else:
-    print(colored("[+] POST Request engine [activated]\n","green"))
+    print(colored("[+] POST Request engine [activated]","green"))
     t_post()
 
 # Delete request option
  elif input_main == 'delete' or input_main =='d':
-  print(colored("[+] DELETE Request engine [activated]\n","green"))
+  print(colored("[+] DELETE Request engine [activated]","green"))
   t_delete()
   
 # Put request option
@@ -1947,17 +2072,17 @@ Connection: keep-alive
     print(colored("""[!]You need to specify Request Body Parameter using 'set-para' or 'spa' for [application/www-form-url-encoded] 'json' for [application/json] type body data \n""","cyan"))
     pass
    else:
-    print(colored("[+] PUT Request engine [activated]\n","green"))
+    print(colored("[+] PUT Request engine [activated]","green"))
     t_put()
   
 # Option request option
  elif input_main == 'options' or input_main =='o':
-  print(colored("[+] OPTIONS Request engine [activated]\n","green"))
+  print(colored("[+] OPTIONS Request engine [activated]","green"))
   t_options()
 
 # Head request option
  elif input_main == 'head' or input_main =='h':
-  print(colored("[+] HEAD Request engine [activated]\n","green"))
+  print(colored("[+] HEAD Request engine [activated]","green"))
   t_head()  
   
 # Patch request option
@@ -1972,7 +2097,7 @@ Connection: keep-alive
     print(colored("""[!]You need to specify Request Body Parameter using 'set-para' or 'spa' for [application/www-form-url-encoded] 'json' for [application/json] type body data \n""","cyan"))
     pass
    else:
-    print(colored("[+] PATCH Request engine [activated]\n","green"))
+    print(colored("[+] PATCH Request engine [activated]","green"))
     t_patch()
   
 # Else option to help
@@ -1986,11 +2111,12 @@ Connection: keep-alive
  set-path / sp   - setting of path
  set-para / spa  - setting of get parameter
  set-json / sj   - setting of json body [POST/PUT/PATCH]
- get / g        - get request engine
- post / p       - post request engine
- delete / d     - delete request engine
- put / P        - put request engine
- patch / pat    - patch request engine
- options / o    - options request engine
- head / h       - head request engine
+ get / g         - get request engine
+ post / p        - post request engine
+ delete / d      - delete request engine
+ put / P         - put request engine
+ patch / pat     - patch request engine
+ options / o     - options request engine
+ head / h        - head request engine
+ nbrute / nbm    - null bruteforce engine
   """,'yellow'))
