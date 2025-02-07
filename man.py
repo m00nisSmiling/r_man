@@ -3,11 +3,12 @@ import os
 import json
 from termcolor import colored
 import sys
+from bs4 import BeautifulSoup
 
-print(colored('''\n          +   REQUEST   +    ENGINE     +''','red'))
-print(colored('''    +             +             +              +''','green'))
-print(colored('''          +[Developed By+ m00nissmiling]+   \n''','red'))
-
+print(colored('''>------------------------<''','red'))
+print(colored('''>-----Request_Engine-----< ''','green'))
+print(colored('''>----By_m00nissmiling----<  \n''','red'))
+print(colored('''>------------------------<''','green'))
 
 
 # OPTIONS REQUEST ENGINE
@@ -22,6 +23,7 @@ def t_options():
  except NameError: 
   q_data = ''
   if nbm_value == 1:
+
    var1 = requests.options(f"{colb}", headers=req_header, allow_redirects=False)
   else:
    for i in range(nbm_value):
@@ -29,7 +31,7 @@ def t_options():
     print(colored("[+] Request -","blue"),i + 1,colored("||==>>","red"),var1.status_code)
   pass
  else:
-  value_query = input("parameter's value: ")
+  value_query = input("Parameter's value: ")
   if value_query == '':
    q_data = f"?{input_query1}={value_query1}"
   else:
@@ -239,11 +241,12 @@ Connection: keep-alive
   hlist.append(f'Content-Length: {b}\n')  
   
 # RESPONSE Create
+ soup = BeautifulSoup(var1.text, "html.parser")
  j = ''.join(hlist)
  print(colored("=================[Response]===================","red"))
  print(colored(f"{http_s} {bss}","green"))
  print(colored(j,"green"))
- print(var1.text)
+ print(soup)
 
 
 
@@ -476,11 +479,12 @@ Connection: keep-alive
   hlist.append(f'Content-Length: {b}\n')  
   
 # RESPONSE Create
+ soup = BeautifulSoup(var1.text, "html.parser")
  j = ''.join(hlist)
  print(colored("=================[Response]===================","red"))
  print(colored(f"{http_s} {bss}","green"))
  print(colored(j,"green"))
- print(var1.text)
+ print(soup)
 
 
 
@@ -712,11 +716,12 @@ Connection: keep-alive
   hlist.append(f'Content-Length: {b}\n')  
   
 # RESPONSE Create
+ soup = BeautifulSoup(var1.text, "html.parser")
  j = ''.join(hlist)
  print(colored("=================[Response]===================","red"))
  print(colored(f"{http_s} {bss}","green"))
  print(colored(j,"green"))
- print(var1.text)
+ print(soup)
 
 
 
@@ -950,11 +955,12 @@ Connection: keep-alive
   hlist.append(f'Content-Length: {b}\n')  
   
 # RESPONSE Create
+ soup = BeautifulSoup(var1.text, "html.parser")
  j = ''.join(hlist)
  print(colored("=================[Response]===================","red"))
  print(colored(f"{http_s} {bss}","green"))
  print(colored(j,"green"))
- print(var1.text)
+ print(soup)
 
 
 # POST REQUEST ENGINE
@@ -1220,11 +1226,12 @@ Content-Length: {cf}
   hlist.append(f'Content-Length: {b}\n')  
   
 # RESPONSE Create
+ soup = BeautifulSoup(var1.text, "html.parser")
  j = ''.join(hlist)
  print(colored("=================[Response]===================","red"))
  print(colored(f"{http_s} {bss}","green"))
  print(colored(j,"green"))
- print(var1.text)
+ print(soup)
 
 
 
@@ -1491,11 +1498,12 @@ Content-Length: {cf}
   hlist.append(f'Content-Length: {b}\n')  
   
 # RESPONSE Create
+ soup = BeautifulSoup(var1.text, "html.parser")
  j = ''.join(hlist)
  print(colored("=================[Response]===================","red"))
  print(colored(f"{http_s} {bss}","green"))
  print(colored(j,"green"))
- print(var1.text)
+ print(soup)
 
 
 
@@ -1764,11 +1772,12 @@ Content-Length: {cf}
   hlist.append(f'Content-Length: {b}\n')  
   
 # RESPONSE Create
+ soup = BeautifulSoup(var1.text, "html.parser")
  j = ''.join(hlist)
  print(colored("=================[Response]===================","red"))
  print(colored(f"{http_s} {bss}","green"))
  print(colored(j,"green"))
- print(var1.text)
+ print(soup)
  
  
 # SET HOST AND PATH
