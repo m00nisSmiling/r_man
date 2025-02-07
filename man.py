@@ -5,10 +5,10 @@ from termcolor import colored
 import sys
 from bs4 import BeautifulSoup
 
-print(colored('''>------------------------<''','red'))
-print(colored('''>-----Request_Engine-----< ''','green'))
-print(colored('''>----By_m00nissmiling----<  \n''','red'))
-print(colored('''>------------------------<''','green'))
+print(colored('''     >------------------------<''','red'))
+print(colored('''     >-----Request_Engine-----< ''','green'))
+print(colored('''     >----By_m00nissmiling----<  ''','red'))
+print(colored('''     >------------------------<\n''','green'))
 
 
 # OPTIONS REQUEST ENGINE
