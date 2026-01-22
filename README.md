@@ -1,14 +1,26 @@
 # r_man
-Manual Request Engine For Termux / Linux / Windows 
+- Manual Request Engine For Termux / Linux / Windows 
 
 <hr>
 
 # Installation
 ```
-$ git clone https://github.com/m00nisSmiling/r_man.git
-$ cd r_man
-$ python requirements.py
-$ python man.py
+git clone https://github.com/m00nisSmiling/r_man.git
+
+```
+
+```
+cd r_man
+
+```
+
+```
+python requirements.py
+
+```
+
+```
+python man.py
 ```
 
 <hr>
