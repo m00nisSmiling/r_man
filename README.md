@@ -6,19 +6,13 @@
 # Installation
 ```
 git clone https://github.com/m00nisSmiling/r_man.git
-
 ```
-
 ```
 cd r_man
-
 ```
-
 ```
 python requirements.py
-
 ```
-
 ```
 python man.py
 ```
